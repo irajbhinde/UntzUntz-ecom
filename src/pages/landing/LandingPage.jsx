@@ -1,7 +1,9 @@
 import React from "react";
+import { Link } from "react-router-dom";
+
 import landing_image_mellowhead from "../../assets/landing_page_images/landing_page_mellowhead.svg"
 import "./landingPage.css"
-import { Link } from "react-router-dom";
+
 
 
 export default function LandingPage (){
