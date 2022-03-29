@@ -1,10 +1,14 @@
 import {Routes, Route} from "react-router-dom"
-import {LandingPage} from "../index.js"
+
+import { LandingPage, HomePage } from "../index.js"
+
+
 
 const RouterPage = () => {
     return (
         <Routes>
-            <Route to="/" element={<LandingPage />} />
+            <Route path="/" element={<LandingPage />} />
+            <Route path="/home" element={<HomePage />} />
         </Routes>
     )
 }
