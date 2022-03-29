@@ -1,5 +1,4 @@
 import "./App.css";
-import { LandingPage } from "./pages";
 import { RouterPage } from "./pages/routes/RouterPage";
 
 function App() {
