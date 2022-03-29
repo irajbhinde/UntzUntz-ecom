@@ -12,6 +12,7 @@ body {
     --hero-bg: #fffff0;
     --login-bg: #ffffff;
     --page-containers: #e5e5e5;
+    --bg-gray: #908988;
   }
   
   a {
@@ -83,7 +84,7 @@ body {
   }
   
   .bg-gray {
-    background-color: #908988;
+    background-color: var(--bg-gray);
   }
   
   .search-bar input {
