@@ -1,13 +1,32 @@
 import { Link } from "react-router-dom";
 
 import { categories } from "../../../backend/db/categories";
-import newarrivals from "../../../assets/home_page_images/bottom_1.jpg";
-import trending from "../../../assets/home_page_images/bottom_2.jpg";
 
 export default function HomePageContainer() {
   return (
     <>
-      <Link to="/productlisting">
+      {categories.map(
+        ({ categoryName, image, description, bottom }) =>
+          bottom && (
+            <Link to="/productlisting">
+              <div className="bottom-container">
+                <div className="cards horizontal">
+                  <div className="img_txt_onside">
+                    <div className="image_div">
+                      <img src={image} />
+                    </div>
+                    <div className="cards-title-horizontal">
+                      <p className="horizontal-card-title">{categoryName}</p>
+                      <small>{description}</small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </Link>
+          )
+      )}
+
+      {/* /* <Link to="/productlisting">
         <div className="bottom-container">
           <div className="cards horizontal">
             <div className="img_txt_onside">
@@ -24,8 +43,8 @@ export default function HomePageContainer() {
             </div>
           </div>
         </div>
-      </Link>
-      <Link to="/productlisting">
+      </Link>  */}
+      {/* <Link to="/productlisting">
         <div className="bottom-container">
           <div className="cards horizontal">
             <div className="img_txt_onside">
@@ -42,7 +61,7 @@ export default function HomePageContainer() {
             </div>
           </div>
         </div>
-      </Link>
+      </Link> */}
     </>
   );
 }
