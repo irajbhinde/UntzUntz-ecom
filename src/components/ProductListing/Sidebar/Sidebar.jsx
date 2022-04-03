@@ -1,6 +1,3 @@
-import { Link } from "react-router-dom";
-import { useReducer } from "react";
-import { products } from "../../../backend/db/products";
 import { useProduct } from "../../context/product-context";
 
 export default function Sidebar() {
@@ -13,7 +10,8 @@ export default function Sidebar() {
         <div className="container-one flex_r">
           <h3>Filter</h3>
           <h4>
-            <u className="clearFilter">Clear Filters</u>
+            <u className="clearFilter"
+            onClick={()=>dispatch({type:"CLEAR_FILTERS"})}>Clear Filters</u>
           </h4>
         </div>
 
