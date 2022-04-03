@@ -35,10 +35,22 @@
     width: 15.625rem;
     height: 15.625rem;
   }
+
+  .clearFilter{
+    cursor: pointer;
+  }
+
   .cards {
     margin: 1rem;
     height: max-content;
     color: var(--black-text);
+    display: flex;
+    flex-direction: column;
+    width: min-content;
+    height: auto;
+    box-shadow: rgb(50 50 93 / 25%) 0px 2px 5px -1px, rgb(0 0 0 / 30%) 0px 1px 3px -1px;
+    padding: 1rem;
+    flex-wrap: wrap;
   }
   .btn-card.vertical-card {
     width: 15.625rem;
