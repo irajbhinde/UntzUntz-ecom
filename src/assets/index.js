@@ -6,7 +6,7 @@ import ab from "./product_card_images/5.jpg";
 import myon2 from "./product_card_images/6.jpg";
 import bohmer from "./product_card_images/7.jpg";
 import arty from "./product_card_images/8.jpg";
-import { landing_page_mellowhead } from "./landing_page_images/landing_page_mellowhead.svg";
+import landing_page_mellowhead from "./landing_page_images/landing_page_mellowhead.svg";
 import grouptherapy from "./home_page_images/image_gt.jpg";
 import clothing from "./home_page_images/image_lane8_model.jpg";
 import vinyl from "./home_page_images/image_hp_vinyl.png";
