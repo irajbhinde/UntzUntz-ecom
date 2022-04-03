@@ -1,13 +1,12 @@
 import { v4 as uuid } from "uuid";
-
-import grouptherapy from "../../assets/home_page_images/image_gt.jpg";
-import clothing from "../../assets/home_page_images/image_lane8_model.jpg";
-import vinyl from "../../assets/home_page_images/image_hp_vinyl.png";
-import poster from "../../assets/home_page_images/poster.png";
-import cds from "../../assets/home_page_images/image_cd.png";
-import newarrivals from "../../assets/home_page_images/bottom_1.jpg";
-import trending from "../../assets/home_page_images/bottom_2.jpg";
-
+import {
+  trending,
+  grouptherapy,
+  newarrivals,
+  cds,
+  poster,
+  vinyl,
+  clothing } from "../../assets/index"
 /**
  * Category Database can be added here.
  * You can add category of your wish with different attributes
