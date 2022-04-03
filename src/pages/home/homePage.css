@@ -1,0 +1,81 @@
+@import url("https://fonts.googleapis.com/css2?family=Akaya+Telivigala&family=Indie+Flower&family=Montserrat:wght@300&family=Nunito+Sans:wght@700&family=Open+Sans+Condensed:wght@700&family=Shadows+Into+Light&display=swap");
+
+.strip {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 16.688rem;
+  height: 1.5rem;
+  background-color: var(--primary-color);
+  font-family: "Montserrat", sans-serif;
+  position: absolute;
+  top: 4.188rem;
+  color: black;
+}
+
+.doc-home {
+  width: 100vw;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 5rem;
+  gap: 1.25rem;
+}
+
+.home-hero img {
+  max-width: 100%;
+}
+
+.home-cards {
+  display: flex;
+  gap: 0.625rem;
+}
+
+.cards-image img {
+  width: 16.688rem;
+  height: 16.688rem;
+}
+
+.cards-title.onimage {
+  margin: 0;
+}
+
+.cards {
+  box-shadow: none;
+  padding: 0;
+  margin: 0;
+}
+
+.cards.horizontal {
+  width: 37.5rem;
+}
+
+.horizontal-card-title {
+  font-size: 1.25rem;
+}
+
+.cards-title-horizontal {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 0 1rem;
+}
+
+.bottom-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 42.375rem;
+  height: 18.75rem;
+  background-color: var(--page-containers);
+  margin-bottom: 2rem;
+  cursor: pointer;
+}
+
+.img_txt_onside {
+  padding: 0;
+}
+
+.image_div img {
+  width: 12.5rem;
+  height: 12.5rem;
+}

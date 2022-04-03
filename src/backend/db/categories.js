@@ -1,5 +1,13 @@
 import { v4 as uuid } from "uuid";
 
+import grouptherapy from "../../assets/home_page_images/image_gt.jpg";
+import clothing from "../../assets/home_page_images/image_lane8_model.jpg";
+import vinyl from "../../assets/home_page_images/image_hp_vinyl.png";
+import poster from "../../assets/home_page_images/poster.png";
+import cds from "../../assets/home_page_images/image_cd.png";
+import newarrivals from "../../assets/home_page_images/bottom_1.jpg";
+import trending from "../../assets/home_page_images/bottom_2.jpg";
+
 /**
  * Category Database can be added here.
  * You can add category of your wish with different attributes
@@ -8,20 +16,48 @@ import { v4 as uuid } from "uuid";
 export const categories = [
   {
     _id: uuid(),
-    categoryName: "fiction",
-    description:
-      "literature in the form of prose, especially novels, that describes imaginary events and people",
+    categoryName: "Digital Download",
+    image: grouptherapy,
+    bottom: false,
   },
   {
     _id: uuid(),
-    categoryName: "non-fiction",
-    description:
-      "Non-fiction is writing that gives information or describes real events, rather than telling a story.",
+    categoryName: "Clothing",
+    image: clothing,
+    bottom: false,
   },
   {
     _id: uuid(),
-    categoryName: "horror",
+    categoryName: "Vinyl",
+    image: vinyl,
+    bottom: false,
+  },
+  {
+    _id: uuid(),
+    categoryName: "Posters",
+    image: poster,
+    bottom: false,
+  },
+  {
+    _id: uuid(),
+    categoryName: "CDs",
+    image: cds,
+    bottom: false,
+  },
+  {
+    _id: uuid(),
+    categoryName: "New Arrivals",
+    image: newarrivals,
+    bottom: true,
     description:
-      "Meant to cause discomfort and fear for both the character and readers, horror writers often make use of supernatural and paranormal elements in morbid stories that are sometimes a little too realistic.",
+      "All the latest music releases from around the world as soon as they drop!",
+  },
+  {
+    _id: uuid(),
+    categoryName: "Trending",
+    image: trending,
+    bottom: true,
+    description:
+      "Viral, trending & taking off! A combination of top chart & viral trends, all your favorites in one place.",
   },
 ];

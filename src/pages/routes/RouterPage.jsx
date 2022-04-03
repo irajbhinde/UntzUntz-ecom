@@ -1,12 +1,14 @@
-import {Routes, Route} from "react-router-dom"
-import {LandingPage} from "../index.js"
+import { Routes, Route } from "react-router-dom";
+
+import { LandingPage, HomePage } from "../index.js";
 
 const RouterPage = () => {
-    return (
-        <Routes>
-            <Route to="/" element={<LandingPage />} />
-        </Routes>
-    )
-}
+  return (
+    <Routes>
+      <Route path="/" element={<LandingPage />} />
+      <Route path="/home" element={<HomePage />} />
+    </Routes>
+  );
+};
 
-export { RouterPage } ;
+export { RouterPage };
