@@ -1,6 +1,9 @@
 import { Link } from "react-router-dom";
+import { useCart } from "../../context/cart-context"
 
 export default function PdNav(){
+  const {cartState} = useCart();
+  const {itemCount, wishlistCount} = cartState;
     return(
         <nav>
       <div className="nav-bar">
@@ -20,10 +23,14 @@ export default function PdNav(){
         <div className="right-navbar">
           <Link to="/home"><i className="fa-solid fa-arrow-left-long"></i>Back to Home</Link>
           <Link to="/logout">Logout</Link>
-          <Link to="/cart"><i className="fa-solid fa-cart-shopping"></i
-          ></Link>
-          <Link to="/wishlist"><i className="fa-solid fa-heart"></i
-          ></Link>
+          <Link to="/cart">
+            <i className="fa-solid fa-cart-shopping"></i>
+            <span class="cart-badge">{itemCount}</span>
+          </Link>
+          <Link to="/wishlist">
+            <i className="fa-solid fa-heart"></i>
+            <span class="wishlist-badge">{wishlistCount}</span>
+            </Link>
         </div>
       </div>
     </nav>
