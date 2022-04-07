@@ -37,13 +37,13 @@
   margin: 0;
 }
 
-.cards {
+.home-cards {
   box-shadow: none;
   padding: 0;
   margin: 0;
 }
 
-.cards.horizontal {
+.cards.horizontal.homePage {
   width: 37.5rem;
 }
 

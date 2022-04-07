@@ -7,6 +7,11 @@ export const cartReducer = (state, action) => {
                 ...state,
                 cartProducts : [...state.cartProducts, {...payload, quantity: 1}]
             }
+        case "REMOVE_FROM_CART":
+            return{
+                ...state,
+                cartProducts : [...state.cartProducts.filter((item) => item._id !== payload._id)]
+            }
         case "REMOVE_FROM_WISHLIST":
             return{
                 ...state,
@@ -16,6 +21,16 @@ export const cartReducer = (state, action) => {
             return{
                 ...state,
                 wishlistProducts : [...state.wishlistProducts, payload]
+            }
+        case "INCREASE_QTY":
+            return{
+                ...state,
+                cartProducts : state.cartProducts.map((item) => item._id === payload._id ? {...item, quantity : item.quantity +1 } : item) 
+            }
+        case "DECREASE_QTY":
+            return{
+                ...state,
+                cartProducts : state.cartProducts.map((item) => item._id === payload._id ? {...item, quantity : item.quantity > 1 ? item.quantity - 1 : item.quantity } : item )
             }
     }
 }
