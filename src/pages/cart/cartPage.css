@@ -12,7 +12,7 @@
   flex-wrap: wrap;
 }
 
-.cards.horizontal.cartPage {
+.cards.horizontal {
   width: max-content;
   border: 1px solid var(--primary-color);
   border-radius: 5px;
@@ -21,7 +21,7 @@
   margin-bottom: 1rem;
 }
 
-.cards-title-horizontal {
+.cards-title-horizontal.cartPage {
   display: flex;
   flex-direction: column;
   gap: 2rem;

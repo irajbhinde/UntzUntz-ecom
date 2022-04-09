@@ -9,7 +9,7 @@ export default function ProductCard({ product, key }) {
   console.log("WP", wishlistProducts);
   return (
     <>
-      <div className="cards">
+      <div className="cards productPage">
         <div className="img_text">
           <span className="top-left-badge">On Sale</span>
           <i className="far fa-heart fa-lg top-right-badge"></i>

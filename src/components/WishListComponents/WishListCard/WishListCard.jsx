@@ -8,7 +8,7 @@ export default function WishListCard({ product }) {
   const {wishlistProducts, cartProducts} = cartState
   console.log("WL", product);
   return (
-    <div className="cards">
+    <div className="cards productPage">
       <div className="img_text">
         <span className="top-left-badge">On Sale</span>
         <i className="fas fa-heart fa-lg top-right-badge"></i>
@@ -21,7 +21,7 @@ export default function WishListCard({ product }) {
         </div>
       </div>
       <div className="buttons_icons flex_c">
-        {cartProducts.find((prod) => prod._id === product._id) ? (
+        {cartProducts.find((prods) => prods._id === product._id) ? (
           <button className="bg-gray btn-card vertical-card">
             <Link to="/cart">Go to cart</Link>
           </button>
