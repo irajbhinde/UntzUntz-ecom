@@ -1,4 +1,5 @@
 export const productReducer = (state, action) => {
+  console.log(action.type);
   switch (action.type) {
     case "SORT":
       return {
@@ -34,6 +35,22 @@ export const productReducer = (state, action) => {
           Above_And_Beyond: !state.categories.Above_And_Beyond,
         },
       };
+    case "CDS":
+      return {
+        ...state,
+        categories: {
+          ...state.categories,
+          CDs: !state.categories.CDs,
+        },
+      };
+    case "POSTERS":
+      return {
+        ...state,
+        categories: {
+          ...state.categories,
+          Posters: !state.categories.Posters,
+        },
+      };
     case "CLEAR_FILTERS":
       return {
         ...state,
@@ -43,6 +60,8 @@ export const productReducer = (state, action) => {
           Anjunadeep: false,
           Anjunabeats: false,
           Above_And_Beyond: false,
+          CDs:false,
+          Posters:false
         },
       };
     default:
