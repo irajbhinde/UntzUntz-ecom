@@ -22,8 +22,12 @@ export default function WishListCard({ product }) {
       </div>
       <div className="buttons_icons flex_c">
         {cartProducts.find((prods) => prods._id === product._id) ? (
-          <button className="bg-gray btn-card vertical-card">
-            <Link to="/cart">Go to cart</Link>
+          <button
+          onClick={() =>
+            cartDispatch({ type: "INCREASE_QTY", payload: product })
+          }
+           className="btn-card vertical-card">
+            <p>Increase Item Quantity in Cart</p>
           </button>
         ) : (
           <button

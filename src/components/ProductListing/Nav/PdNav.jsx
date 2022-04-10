@@ -3,7 +3,7 @@ import { useCart } from "../../context/cart-context"
 
 export default function PdNav(){
   const {cartState} = useCart();
-  const {itemCount, wishlistCount} = cartState;
+  const {cartProducts, wishlistProducts} = cartState
     return(
         <nav>
       <div className="nav-bar">
@@ -25,11 +25,11 @@ export default function PdNav(){
           <Link to="/logout">Logout</Link>
           <Link to="/cart">
             <i className="fa-solid fa-cart-shopping"></i>
-            <span class="cart-badge">{itemCount}</span>
+            <span class="cart-badge">{cartProducts.length}</span>
           </Link>
           <Link to="/wishlist">
             <i className="fa-solid fa-heart"></i>
-            <span class="wishlist-badge">{wishlistCount}</span>
+            <span class="wishlist-badge">{wishlistProducts.length}</span>
             </Link>
         </div>
       </div>

@@ -1,6 +1,9 @@
 import { Link } from "react-router-dom";
+import { useCart } from "../../context/cart-context";
 
 export default function CartNav (){
+  const {cartState} = useCart();
+  const {cartProducts, wishlistProducts} = cartState
     return(
         <nav>
       <div className="nav-bar">
@@ -22,11 +25,11 @@ export default function CartNav (){
           <Link to="/logout">Logout</Link>
           <Link to="/cart">
             <i className="fa-solid fa-cart-shopping"></i>
-            <span class="cart-badge">1</span>
+            <span class="cart-badge">{cartProducts.length}</span>
           </Link>
           <Link to="/wishlist">
             <i className="fa-solid fa-heart"></i>
-            <span className="wishlist-badge">2</span>
+            <span className="wishlist-badge">{wishlistProducts.length}</span>
             </Link>
         </div>
       </div>
