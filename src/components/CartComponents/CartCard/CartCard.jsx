@@ -3,7 +3,6 @@ import { useCart } from "../../context/cart-context";
 export default function CartCard({ product }) {
   const { cartState, cartDispatch } = useCart();
   const { wishlistProducts } = cartState;
-  console.log("PD", product);
   return (
     <>
       <div className="cards horizontal">

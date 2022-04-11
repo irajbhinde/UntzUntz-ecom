@@ -5,8 +5,6 @@ export default function ProductCard({ product, key }) {
   const { _id, title, image, subtitle, price, rating } = product;
   const { cartState, cartDispatch } = useCart();
   const { cartProducts, wishlistProducts } = cartState;
-  console.log("CP", cartProducts);
-  console.log("WP", wishlistProducts);
   return (
     <>
       <div className="cards productPage">
@@ -57,28 +55,6 @@ export default function ProductCard({ product, key }) {
             </button>
           )}
         </div>
-
-        {/* CODE THAT WORKS  */}
-
-        {/* <div className="buttons_icons flex_c">
-          <button
-            onClick={() =>
-              cartDispatch({ type: "ADD_TO_CART", payload: 1 })
-            }
-            className="btn-card vertical-card"
-          >
-            Add to cart
-          </button>
-
-          <button
-            onClick={() =>
-              cartDispatch({ type: "ADD_TO_WISHLIST", payload: 1 })
-            }
-            className="bg-none btn-card vertical-card"
-          >
-            Add to Wishlist
-          </button>
-        </div> */}
       </div>
     </>
   );

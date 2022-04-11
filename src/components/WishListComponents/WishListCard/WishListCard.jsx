@@ -5,8 +5,7 @@ import "../WishListCard/wishListPage.css";
 
 export default function WishListCard({ product }) {
   const { cartState, cartDispatch } = useCart();
-  const {wishlistProducts, cartProducts} = cartState
-  console.log("WL", product);
+  const {wishlistProducts, cartProducts} = cartState;
   return (
     <div className="cards productPage">
       <div className="img_text">
