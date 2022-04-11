@@ -9,6 +9,8 @@ import  {ProductProvider}  from "../components/context/product-context";
 import  CartNav  from "./CartComponents/cartNav/CartNav"
 import  CartCard  from "./CartComponents/CartCard/CartCard";
 import  BillCard  from "./CartComponents/CartCard/BillCard";
+import LoginCard from "./login_signup/LoginCard";
+import SignUpCard from "./login_signup/SignupCard";
 
 export {
   Nav,
@@ -21,5 +23,7 @@ export {
   ProductProvider,
   CartNav,
   CartCard,
-  BillCard
+  BillCard,
+  LoginCard,
+  SignUpCard
 };

@@ -64,3 +64,9 @@
     padding-top: 2rem;
     padding-bottom: 3rem;
 }
+
+.loginpass-icon{
+    position: absolute;
+    right: 37rem;
+    top: 22rem;
+}

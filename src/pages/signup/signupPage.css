@@ -1,0 +1,36 @@
+.signup-container{
+    width: 40rem;
+    height: 36rem;
+    color: var(--primary-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--login-bg);
+    border: 1px solid #ff7e71;
+    border-radius: 5px;
+}
+.signup-title{
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+.btn.primary-btn{
+    font-size: 1rem;
+    width: 23.5rem;
+    margin-bottom: 1rem;
+}
+.signup-elements{ 
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    width: 23.5rem;
+    justify-content: space-between;
+    padding-bottom: 1.5rem;
+}
+.pass-icon{
+    position: absolute;
+    right: 0.625rem;
+    top: 2rem;
+}
+.input-password{
+    position: relative;
+}
