@@ -8,7 +8,7 @@ export default function HomePageCard() {
         ({ categoryName, image, bottom }) =>
           !bottom && (
             <Link to="/productlisting">
-              <div className="cards textovermedia">
+              <div className="textovermedia">
                 <div className="img_text">
                   <div className="cards-image">
                     <img src={image} />
