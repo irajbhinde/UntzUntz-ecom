@@ -15,19 +15,19 @@ import {
 export const categories = [
   {
     _id: uuid(),
-    categoryName: "Digital Download",
+    categoryName: "Anjunadeep",
     image: grouptherapy,
     bottom: false,
   },
   {
     _id: uuid(),
-    categoryName: "Clothing",
+    categoryName: "Anjunabeats",
     image: clothing,
     bottom: false,
   },
   {
     _id: uuid(),
-    categoryName: "Vinyl",
+    categoryName: "Above And Beyond",
     image: vinyl,
     bottom: false,
   },

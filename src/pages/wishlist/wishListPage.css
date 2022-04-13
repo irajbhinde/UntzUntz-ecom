@@ -1,0 +1,25 @@
+.cart-badge {
+    position: absolute;
+    width: 0.938rem;
+    height: 0.938rem;
+    display: flex;
+    top: 1.563rem;
+    right: 5.25rem;
+    justify-content: center;
+    font-size: 0.625rem;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+  }
+  
+  .wishlist-cards {
+    justify-content: center;
+  }
+  
+  .doc-wishlist{
+      align-items: center;
+  }
+  .doc-wishlist h1{
+      color: var(--black-text);
+      padding-bottom: 2rem;
+  }
+  

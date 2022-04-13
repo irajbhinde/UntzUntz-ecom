@@ -7,7 +7,12 @@ import {
   ab,
   myon2,
   bohmer,
-  arty
+  arty,
+  ab_poster,
+  anjuna_cloth,
+  lane8_poster,
+  cubic_cd,
+  leaving_laurel_cd
 } from "../../assets/index"
 
 /**
@@ -89,5 +94,41 @@ export const products = [
     categoryName: "Anjunabeats",
     rating: "2",
     image: arty
+  },
+  {
+    _id: uuid(),
+    title: "Above & Beyond",
+    subtitle: "Poster",
+    price: 500,
+    categoryName: "Posters",
+    rating: "5",
+    image: ab_poster
+  },
+  {
+    _id: uuid(),
+    title: "Lane 8",
+    subtitle: "Poster",
+    price: 300,
+    categoryName: "Posters",
+    rating: "4",
+    image: lane8_poster
+  },
+  {
+    _id: uuid(),
+    title: "Cubic Color",
+    subtitle: "Day & Night",
+    price: 1000,
+    categoryName: "CDs",
+    rating: "5",
+    image: cubic_cd
+  },
+  {
+    _id: uuid(),
+    title: "Leaving Laurel",
+    subtitle: "Winter in Woods",
+    price: 300,
+    categoryName: "CDs",
+    rating: "5",
+    image: leaving_laurel_cd
   }
 ];

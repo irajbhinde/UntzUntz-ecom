@@ -1,6 +1,8 @@
+import MockmanEs from "mockman-js";
 import { Routes, Route } from "react-router-dom";
 
-import { LandingPage, HomePage, ProductListing } from "../index.js";
+import { LandingPage, HomePage, ProductListing, CartPage, WishListPage} from "../index.js";
+
 
 const RouterPage = () => {
   return (
@@ -8,6 +10,9 @@ const RouterPage = () => {
       <Route path="/" element={<LandingPage />} />
       <Route path="/home" element={<HomePage />} />
       <Route path="/productlisting" element={<ProductListing />} />
+      <Route path="/cart" element={<CartPage />} />
+      <Route path="/wishlist" element={<WishListPage />} />
+      <Route path="/mockman" element={<MockmanEs />} />
     </Routes>
   );
 };

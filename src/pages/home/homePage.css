@@ -37,13 +37,13 @@
   margin: 0;
 }
 
-.cards {
+.homecards{
   box-shadow: none;
   padding: 0;
   margin: 0;
 }
 
-.cards.horizontal {
+.homecards.horizontal.homePage {
   width: 37.5rem;
 }
 
@@ -51,7 +51,7 @@
   font-size: 1.25rem;
 }
 
-.cards-title-horizontal {
+.homecards-title-horizontal {
   display: flex;
   flex-direction: column;
   gap: 2rem;

@@ -1,0 +1,99 @@
+.cards {
+  box-shadow: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  width: min-content;
+  height: auto;
+  box-shadow: rgb(50 50 93 / 25%) 0px 2px 5px -1px,
+    rgb(0 0 0 / 30%) 0px 1px 3px -1px;
+  padding: 1rem;
+  flex-wrap: wrap;
+}
+
+.cards.horizontal {
+  width: max-content;
+  border: 1px solid var(--primary-color);
+  border-radius: 5px;
+  padding-top: 1rem;
+  padding-left: 1rem;
+  margin-bottom: 1rem;
+}
+
+.cards-title-horizontal.cartPage {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 0 1rem;
+  justify-content: flex-end;
+}
+
+.cards-qty {
+  display: flex;
+  align-items: center;
+  gap: 1.875rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.438rem;
+}
+
+.cards-qty i {
+  cursor: pointer;
+}
+
+.cards img {
+  width: 9.375rem;
+  height: 9.375rem;
+}
+
+.cards-title-horizontal {
+  gap: 1rem;
+}
+
+.bill-card {
+  gap: 0.5rem;
+  font-size: 13px;
+  border: 1px solid var(--primary-color);
+  border-radius: 5px;
+  padding: 1rem 1rem 0 1rem;
+}
+
+.bill-container {
+  justify-content: space-between;
+  color: var(--black-text);
+}
+
+.doc-checkout {
+  margin-top: 3rem;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 10rem;
+  padding-right: 8rem;
+}
+
+.border-bottom {
+  border-bottom: 1px solid;
+}
+
+.btn.checkout {
+  margin-top: 1rem;
+  width: 20rem;
+}
+
+#apply-coupon {
+  color: var(--primary-color);
+  cursor: pointer;
+}
+
+.cart-badge {
+  position: absolute;
+  width: 0.938rem;
+  height: 0.938rem;
+  display: flex;
+  top: 1.563rem;
+  right: 5.25rem;
+  justify-content: center;
+  font-size: 0.625rem;
+  border-radius: 50%;
+  background-color: var(--primary-color);
+}

@@ -10,12 +10,12 @@ export default function HomePageContainer() {
           bottom && (
             <Link to="/productlisting">
               <div className="bottom-container">
-                <div className="cards horizontal">
+                <div className="homecards horizontal homePage">
                   <div className="img_txt_onside">
                     <div className="image_div">
                       <img src={image} />
                     </div>
-                    <div className="cards-title-horizontal">
+                    <div className="homecards-title-horizontal">
                       <p className="horizontal-card-title">{categoryName}</p>
                       <small>{description}</small>
                     </div>

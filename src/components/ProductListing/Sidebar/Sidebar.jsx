@@ -2,7 +2,7 @@ import { useProduct } from "../../context/product-context";
 
 export default function Sidebar() {
   const {state, dispatch} = useProduct(); 
-  const {sortByPrice, sortByRating, categories : {Anjunadeep, Anjunabeats, Above_And_Beyond} }  = state;
+  const {sortByPrice, sortByRating, categories : {Anjunadeep, Anjunabeats, Above_And_Beyond, Posters, CDs, ShowAll} }  = state;
 
   return (
     <aside>
@@ -34,6 +34,18 @@ export default function Sidebar() {
             onChange={()=> dispatch({type:"ABOVE_AND_BEYOND"})}
             checked={Above_And_Beyond} />{" "}
             <label for="above-and-beyond">Above & Beyond</label>{" "}
+          </span>
+          <span>
+            <input id="posters" type="checkbox"
+            onChange={()=> dispatch({type:"POSTERS"})}
+            checked={Posters} />{" "}
+            <label for="posters">Posters</label>{" "}
+          </span>
+          <span>
+            <input id="cds" type="checkbox"
+            onChange={()=> dispatch({type:"CDS"})}
+            checked={CDs} />{" "}
+            <label for="cds">CDs</label>{" "}
           </span>
         </div>
         <div className="input-container flex_c">

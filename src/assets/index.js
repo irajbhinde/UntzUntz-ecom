@@ -14,6 +14,12 @@ import poster from "./home_page_images/poster.png";
 import cds from "./home_page_images/image_cd.png";
 import newarrivals from "./home_page_images/bottom_1.jpg";
 import trending from "./home_page_images/bottom_2.jpg";
+import ab_poster from "./product_card_images/A_B-Flag-black-Gray.webp"
+import anjuna_cloth from "./product_card_images/Anjunabeatstie-dyeTee.webp"
+import lane8_poster from "./product_card_images/Lane8Flag_1_540x.webp"
+import cubic_cd from "./product_card_images/cubic_cd.jpg"
+import leaving_laurel_cd from "./product_card_images/leaving_laurel_cd.jpg"
+
 
 export {
   trending,
@@ -32,4 +38,9 @@ export {
   bohmer,
   arty,
   landing_page_mellowhead,
+  ab_poster,
+  lane8_poster,
+  anjuna_cloth,
+  cubic_cd,
+  leaving_laurel_cd
 };
