@@ -1,16 +1,29 @@
-import { Link } from "react-router-dom";
-import { useCart } from "../../context/cart-context"
+import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "../../context/auth-context";
+import { useCart } from "../../context/cart-context";
+import { signoutHandler } from "../../Nav/Nav";
 
-export default function PdNav(){
-  const {cartState} = useCart();
-  const {cartProducts, wishlistProducts} = cartState
-    return(
-        <nav>
+export default function PdNav() {
+  const { auth, setAuth } = useAuth();
+  const navigate = useNavigate();
+  const { cartState } = useCart();
+  const { cartProducts, wishlistProducts } = cartState;
+  const signoutHandler = () => {
+    localStorage.removeItem("token")
+    setAuth({
+        authToken : null,
+        authStatus : false
+    })
+    navigate("/home")
+}
+  return (
+    <nav>
       <div className="nav-bar">
         <div className="left-navbar">
           <h2>
             <Link to="/home">
-              <span className="primary-highlight">Untz</span>Untz!</Link>
+              <span className="primary-highlight">Untz</span>Untz!
+            </Link>
           </h2>
         </div>
         <div className="search-bar flex_r">
@@ -21,8 +34,17 @@ export default function PdNav(){
           />
         </div>
         <div className="right-navbar">
-          <Link to="/home"><i className="fa-solid fa-arrow-left-long"></i>Back to Home</Link>
-          <Link to="/logout">Logout</Link>
+          <Link to="/home">
+            <i className="fa-solid fa-arrow-left-long"></i>Back to Home
+          </Link>
+          {auth.authStatus ? (
+            <p onClick={signoutHandler}>Logout</p>
+          ) : (
+            <>
+              <Link to="/login">Login</Link>
+              <Link to="/signup">Signup</Link>
+            </>
+          )}
           <Link to="/cart">
             <i className="fa-solid fa-cart-shopping"></i>
             <span class="cart-badge">{cartProducts.length}</span>
@@ -30,10 +52,9 @@ export default function PdNav(){
           <Link to="/wishlist">
             <i className="fa-solid fa-heart"></i>
             <span class="wishlist-badge">{wishlistProducts.length}</span>
-            </Link>
+          </Link>
         </div>
       </div>
     </nav>
-    )
+  );
 }
-
