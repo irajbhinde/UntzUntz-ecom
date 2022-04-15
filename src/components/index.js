@@ -11,6 +11,8 @@ import  CartCard  from "./CartComponents/CartCard/CartCard";
 import  BillCard  from "./CartComponents/CartCard/BillCard";
 import LoginCard from "./login_signup/LoginCard";
 import SignUpCard from "./login_signup/SignupCard";
+import { addToCart, deleteFromCart, updateQuantity } from "./services/cart-services/cart-functions";
+import { addToWishlist, removeFromWishlist } from "./services/wishlist-services/wishlist-functions";
 
 export {
   Nav,
@@ -25,5 +27,10 @@ export {
   CartCard,
   BillCard,
   LoginCard,
-  SignUpCard
+  SignUpCard,
+  addToCart,
+  deleteFromCart,
+  updateQuantity,
+  addToWishlist,
+  removeFromWishlist
 };

@@ -2,11 +2,15 @@ import { Link } from "react-router-dom";
 
 import { useCart } from "../../context/cart-context";
 import "../WishListCard/wishListPage.css";
+import { updateQuantity, addToCart } from "../../services/cart-services/cart-functions";
+import { removeFromWishlist } from "../../services/wishlist-services/wishlist-functions";
+import { useAuth } from "../../context/auth-context";
 
 export default function WishListCard({ product }) {
+  const {auth} =useAuth();
+  const {authToken} = auth;
   const { cartState, cartDispatch } = useCart();
-  const {wishlistProducts, cartProducts} = cartState
-  console.log("WL", product);
+  const {wishlistProducts, cartProducts} = cartState;
   return (
     <div className="cards productPage">
       <div className="img_text">
@@ -24,7 +28,7 @@ export default function WishListCard({ product }) {
         {cartProducts.find((prods) => prods._id === product._id) ? (
           <button
           onClick={() =>
-            cartDispatch({ type: "INCREASE_QTY", payload: product })
+            updateQuantity("increment",product, cartDispatch, authToken)
           }
            className="btn-card vertical-card">
             <p>Increase Item Quantity in Cart</p>
@@ -32,7 +36,7 @@ export default function WishListCard({ product }) {
         ) : (
           <button
             onClick={() =>
-              cartDispatch({ type: "ADD_TO_CART", payload: product })
+              addToCart(product, cartDispatch, authToken)
             }
             className="btn-card vertical-card"
           >
@@ -41,7 +45,7 @@ export default function WishListCard({ product }) {
           </button>
         )}
         <button 
-        onClick={() => cartDispatch({type:"REMOVE_FROM_WISHLIST", payload: product})}
+        onClick={() => removeFromWishlist(product, cartDispatch, authToken)}
         className="bg-none btn-card vertical-card">
           Remove from Wishlist
         </button>

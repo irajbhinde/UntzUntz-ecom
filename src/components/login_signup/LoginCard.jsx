@@ -13,7 +13,7 @@ export default function LoginCard(){
       });
 
       
-      const loginHandler = async ({email,password}) => {
+      const loginHandler = async (email,password) => {
           try {
               const response = await axios.post(`/api/auth/login`, {
                   email : email,
@@ -26,11 +26,10 @@ export default function LoginCard(){
                   authToken : response.data.encodedToken,
                   authStatus : true
               })
-              console.log(response.data.encodedToken);
               navigate("/home")
           }
           catch(error){
-              console.log(error);
+            console.log(error);
           }
       }
 
@@ -38,8 +37,7 @@ export default function LoginCard(){
         <div className="login-page">
             <form onSubmit={(e)=> {
                 e.preventDefault();
-                loginHandler(userCred)
-                // console.log(userCred);
+                loginHandler(userCred.email,userCred.password)
             }}
             >
                 <div className="login-container">
@@ -74,10 +72,10 @@ export default function LoginCard(){
                 </button>
                 <button 
                 onClick={() => 
-                    loginHandler({ 
-                        email : "adarshbalika@gmail.com", 
-                        password : "adarshbalika"
-                    })
+                    loginHandler( 
+                        "adarshbalika@gmail.com", 
+                        "adarshbalika"
+                    )
                 
                 }
                 className="bg-gray btn primary-btn">

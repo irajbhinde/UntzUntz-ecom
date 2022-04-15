@@ -24,7 +24,7 @@ export default function ProductListing() {
   useEffect(() => {
     async function getData() {
       try {
-        const response = await axios("/api/products");
+        const response = await axios.get("/api/products");
         setData(response.data.products);
       } catch (error) {
         console.log(error);

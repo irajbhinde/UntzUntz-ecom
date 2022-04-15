@@ -28,7 +28,7 @@ export default function SignUpCard() {
         authToken : response.data.encodedToken,
         authStatus : true 
       })
-      navigate("/login")
+      navigate("/home")
     } catch (error) {
       console.log(error);
     }
@@ -39,7 +39,6 @@ export default function SignUpCard() {
       <form
         onSubmit={(e) => {
           e.preventDefault();
-          console.log(userCred);
           signUpHandler(userCred);
         }}
       >

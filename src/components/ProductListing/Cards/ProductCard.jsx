@@ -1,12 +1,18 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/auth-context";
 import { useCart } from "../../context/cart-context";
+import { addToCart } from "../../services/cart-services/cart-functions";
+import {
+  addToWishlist,
+  removeFromWishlist,
+} from "../../services/wishlist-services/wishlist-functions";
 
 export default function ProductCard({ product, key }) {
   const { _id, title, image, subtitle, price, rating } = product;
   const { cartState, cartDispatch } = useCart();
-  const { cartProducts, wishlistProducts } = cartState; 
-  const {auth, setAuth} = useAuth();
+  const { cartProducts, wishlistProducts } = cartState;
+  const { auth, setAuth } = useAuth();
+  const { authToken, authStatus } = auth;
   const navigate = useNavigate();
   return (
     <>
@@ -30,14 +36,11 @@ export default function ProductCard({ product, key }) {
             </button>
           ) : (
             <button
-              onClick={() => { auth.authStatus ? (
-                cartDispatch({ type: "ADD_TO_CART", payload: product })
-              ) : (
-                navigate("/login")
-              )
-              }
-                
-              }
+              onClick={() => {
+                authStatus
+                  ? addToCart(product, cartDispatch, authToken)
+                  : navigate("/login");
+              }}
               className="btn-card vertical-card"
             >
               Add to cart
@@ -46,7 +49,7 @@ export default function ProductCard({ product, key }) {
           {wishlistProducts.find((prod) => prod._id === product._id) ? (
             <button
               onClick={() =>
-                cartDispatch({ type: "REMOVE_FROM_WISHLIST", payload: product })
+                removeFromWishlist(product, cartDispatch, authToken)
               }
               className="bg-none btn-card vertical-card"
             >
@@ -54,13 +57,11 @@ export default function ProductCard({ product, key }) {
             </button>
           ) : (
             <button
-              onClick={() => {auth.authStatus ? (
-                cartDispatch({ type: "ADD_TO_WISHLIST", payload: product })
-              ) : (
-                navigate("/login")
-              )}
-               
-              }
+              onClick={() => {
+                auth.authStatus
+                  ? addToWishlist(product, cartDispatch, authToken)
+                  : navigate("/login");
+              }}
               className="bg-none btn-card vertical-card"
             >
               Add to Wishlist
