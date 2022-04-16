@@ -19,6 +19,9 @@ import anjuna_cloth from "./product_card_images/Anjunabeatstie-dyeTee.webp"
 import lane8_poster from "./product_card_images/Lane8Flag_1_540x.webp"
 import cubic_cd from "./product_card_images/cubic_cd.jpg"
 import leaving_laurel_cd from "./product_card_images/leaving_laurel_cd.jpg"
+import image_404 from "./404.svg";
+import empty_cart_image from "./product_card_images/undraw_empty_cart_co35.svg"
+import empty_wishlist_image from "./product_card_images/undraw_wishlist_re_m7tv.svg"
 
 
 export {
@@ -42,5 +45,8 @@ export {
   lane8_poster,
   anjuna_cloth,
   cubic_cd,
-  leaving_laurel_cd
+  leaving_laurel_cd,
+  image_404,
+  empty_cart_image,
+  empty_wishlist_image
 };

@@ -5,6 +5,7 @@ import CartPage from "../pages/cart/CartPage"
 import WishListPage from "./wishlist/WishListPage";
 import LoginPage from "./login/LoginPage";
 import SignUpPage from "./signup/SignupPage"
+import NotFound from "./404";
 
 
-export {LandingPage, HomePage, ProductListing, CartPage, WishListPage, LoginPage, SignUpPage}
+export {LandingPage, HomePage, ProductListing, CartPage, WishListPage, LoginPage, SignUpPage, NotFound}
