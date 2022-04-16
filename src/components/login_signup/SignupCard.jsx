@@ -5,7 +5,9 @@ import { useAuth } from "../context/auth-context";
 
 export default function SignUpCard() {
   const navigate = useNavigate();
-  const {auth,setAuth} = useAuth();
+  const { auth, setAuth } = useAuth();
+  const [confirmPassword, setConfirmPassword] = useState("");
+
   const [passType, setPassType] = useState("password");
   const [userCred, setUserCred] = useState({
     firstName: "",
@@ -25,18 +27,23 @@ export default function SignUpCard() {
       localStorage.setItem("token", response.data.encodedToken);
       setAuth({
         ...auth,
-        authToken : response.data.encodedToken,
-        authStatus : true 
-      })
-      navigate("/home")
+        authToken: response.data.encodedToken,
+        authStatus: true,
+      });
+      navigate("/home");
     } catch (error) {
       console.log(error);
     }
   };
-
+  console.log(userCred.password,confirmPassword);
   return (
     <div className="login-page">
       <form
+        disabled={
+          confirmPassword !== userCred.password &&
+          confirmPassword !== "" &&
+          userCred.password !== "" 
+        }
         onSubmit={(e) => {
           e.preventDefault();
           signUpHandler(userCred);
@@ -65,12 +72,12 @@ export default function SignUpCard() {
             />
             <p className="input-title">Email address*</p>
             <input
+              type="email"
               value={userCred.email}
               onChange={(e) =>
                 setUserCred({ ...userCred, email: e.target.value })
               }
               className="input-field margin-bottom"
-              type="text"
             />
             <div className="input-password">
               <p className="input-title">Password*</p>
@@ -101,18 +108,17 @@ export default function SignUpCard() {
                   class="pass-icon fa-solid fa-eye-slash"
                 ></i>
               )}
-              <p className="input-title">
-                {" "}
-                Confirm Password*
-              </p>
+              <p className="input-title"> Confirm Password*</p>
 
-              <input type={passType} className="input-field margin-bottom" />
-            </div>
-          </div>
-          <div className="signup-elements">
-            <div className="element-checkbox">
-              <input id="checkbox" type="checkbox" /> I Accept the terms &
-              conditions
+              <input
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
+                type={passType}
+                className="input-field margin-bottom"
+              />
+              {confirmPassword !== userCred.password &&
+                confirmPassword !== "" &&
+                userCred.password !== "" && <div className="password-mismatch-msg">Password Mismatch</div>}
             </div>
           </div>
           <button className="btn primary-btn">
