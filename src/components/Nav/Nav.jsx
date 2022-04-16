@@ -39,7 +39,7 @@ export default function Nav () {
                         </>
                     )}
                     
-                    <Link to="/productlisting">Explore</Link>
+                    <Link to="/home">Explore</Link>
                 </div>
             </div>
         </nav>

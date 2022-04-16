@@ -7,6 +7,7 @@ import HomePageCard from "../../components/HomePage/HomePageCard/HomePageCard";
 import HomePageHero from "../../components/HomePage/HomePageHero/HomePageHero";
 import HomePageContainer from "../../components/HomePage/HomeBottomContainer/HomePageContainer";
 import { useProduct } from "../../components/context/product-context";
+import HomeNav from "../../components/HomePage/HomeNav/HomeNav";
 
 export default function HomePage() {
   const {dispatch} = useProduct();
@@ -16,7 +17,7 @@ export default function HomePage() {
   }
   return (
     <>
-      <Nav />
+      <HomeNav />
       <div class="doc-home">
         <div className="home-cards">
           <HomePageCard navigationByCategory={navigationByCategory} />

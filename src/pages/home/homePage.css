@@ -81,3 +81,15 @@
 .right-navbar{
   cursor: pointer;
 }
+
+.home_nav{
+  margin-right: 2rem;
+}
+
+.home_c.cart-badge{
+  right: 7.1rem;
+}
+
+.home_w.wishlist-badge{
+  right: 3.375rem;
+}

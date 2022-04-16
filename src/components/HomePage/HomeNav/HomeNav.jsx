@@ -2,22 +2,21 @@ import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/auth-context";
 import { useCart } from "../../context/cart-context";
 
-
-export default function PdNav() {
-  const { auth, setAuth } = useAuth();
-  const {authStatus, authToken} = auth
+export default function HomeNav() {
   const navigate = useNavigate();
-  const { cartState } = useCart();
-  const { cartProducts, wishlistProducts } = cartState;
+  const { auth, setAuth } = useAuth();
+  const {authStatus} = auth;
+  const {cartState} = useCart();
+  const {cartProducts, wishlistProducts} = cartState
+
   const signoutHandler = () => {
-    
-    localStorage.clear()
+    localStorage.removeItem("token");
     setAuth({
-        authToken : null,
-        authStatus : false
-    })
-    navigate("/home")
-}
+      authToken: null,
+      authStatus: false,
+    });
+    navigate("/home");
+  };
 
   return (
     <nav>
@@ -36,25 +35,32 @@ export default function PdNav() {
             placeholder="Search for products, brands & more"
           />
         </div>
-        <div className="right-navbar">
-          <Link to="/home">
-            <i className="fa-solid fa-arrow-left-long"></i>Back to Home
-          </Link>
+        <div className="home_nav right-navbar">
+          <Link to="/productlisting">Explore All</Link>
           {auth.authStatus ? (
-            <p onClick={signoutHandler}>Logout</p>
+            <div className="right-navbar" onClick={signoutHandler}>
+              Logout
+            </div>
           ) : (
             <>
-              <Link to="/login">Login</Link>
-              <Link to="/signup">Signup</Link>
+              <div className="right-navbar">
+                <Link to="/login">Login</Link>
+                <Link to="/signup">Signup</Link>
+              </div>
             </>
           )}
+
           <Link to="/cart">
             <i className="fa-solid fa-cart-shopping"></i>
-            <span class="cart-badge">{authStatus ? cartProducts.length : 0 }</span>
+            <span class="home_c cart-badge">
+              {authStatus ? cartProducts.length : 0}
+            </span>
           </Link>
           <Link to="/wishlist">
             <i className="fa-solid fa-heart"></i>
-            <span class="wishlist-badge">{authStatus ? wishlistProducts.length : 0 }</span>
+            <span class="home_w wishlist-badge">
+              {authStatus ? wishlistProducts.length : 0}
+            </span>
           </Link>
         </div>
       </div>
