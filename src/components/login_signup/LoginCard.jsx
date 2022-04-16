@@ -28,7 +28,13 @@ export default function LoginCard(){
                   authToken : response.data.encodedToken,
                   authStatus : true
               })
-              navigate(from)
+              if(from === undefined){
+                  navigate("/home")
+              }
+              else{
+                  navigate(from)
+              }
+              
           }
           catch(error){
             console.log(error);
