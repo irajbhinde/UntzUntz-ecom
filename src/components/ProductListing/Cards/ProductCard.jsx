@@ -30,7 +30,7 @@ export default function ProductCard({ product, key }) {
           </div>
         </div>
         <div className="buttons_icons flex_c">
-          {cartProducts.find((prod) => prod._id === product._id) ? (
+          {authStatus && cartProducts.find((prod) => prod._id === product._id) ? (
             <button className="bg-gray btn-card vertical-card">
               <Link to="/cart">Go to cart</Link>
             </button>
@@ -60,7 +60,9 @@ export default function ProductCard({ product, key }) {
               onClick={() => {
                 auth.authStatus
                   ? addToWishlist(product, cartDispatch, authToken)
-                  : navigate("/login");
+                  : (
+                    navigate("/login")
+                  )
               }}
               className="bg-none btn-card vertical-card"
             >
