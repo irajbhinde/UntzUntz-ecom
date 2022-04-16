@@ -1,11 +1,13 @@
 import axios from "axios";
 import { useState } from "react"
-import { Link, useNavigate } from "react-router-dom"
+import { Link, useLocation, useNavigate } from "react-router-dom"
 import { useAuth } from "../context/auth-context";
 
 export default function LoginCard(){
     const navigate = useNavigate();
     const {auth, setAuth} = useAuth();
+    const location = useLocation();
+    let from = location.state?.from?.pathname
     const [passType, setPassType] = useState("password");
     const [userCred, setUserCred] = useState({
         email: "",
@@ -26,7 +28,7 @@ export default function LoginCard(){
                   authToken : response.data.encodedToken,
                   authStatus : true
               })
-              navigate("/home")
+              navigate(from)
           }
           catch(error){
             console.log(error);
@@ -76,7 +78,6 @@ export default function LoginCard(){
                         "adarshbalika@gmail.com", 
                         "adarshbalika"
                     )
-                
                 }
                 className="bg-gray btn primary-btn">
                     Login as Guest
