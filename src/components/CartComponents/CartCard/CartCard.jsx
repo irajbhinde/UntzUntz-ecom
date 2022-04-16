@@ -1,6 +1,7 @@
 import { useAuth } from "../../context/auth-context";
 import { useCart } from "../../context/cart-context";
 import { deleteFromCart, updateQuantity } from "../../services/cart-services/cart-functions";
+import { addToWishlist } from "../../services/wishlist-services/wishlist-functions";
 
 export default function CartCard({ product }) {
   const { cartState, cartDispatch } = useCart();
@@ -35,9 +36,9 @@ export default function CartCard({ product }) {
                 Remove from cart
               </button>
               <button 
-              onClick={()=>cartDispatch({type:"ADD_TO_WISHLIST", payload: product})}
+              onClick={()=>addToWishlist(product, cartDispatch, authToken)}
               className="bg-gray btn-card vertical-card">
-                Move to Wishlist
+                Add to Wishlist
               </button>
             </div>
           </div>
