@@ -3,7 +3,7 @@ const getFilteredData = (productList, categories) => {
     return productList;
 }
   return productList.filter(
-    (productList) => categories[productList.categoryName]
+    (product) => categories[product.categoryName]
   );
 };
 

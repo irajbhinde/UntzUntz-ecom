@@ -4,7 +4,6 @@ import { deleteFromCart, updateQuantity } from "../../services/cart-services/car
 
 export default function CartCard({ product }) {
   const { cartState, cartDispatch } = useCart();
-  const { wishlistProducts } = cartState;
   const {auth} = useAuth();
   const {authToken, authStatus} = auth;
   return (

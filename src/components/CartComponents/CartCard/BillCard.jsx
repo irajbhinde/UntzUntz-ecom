@@ -3,7 +3,6 @@ import { useCart } from "../../context/cart-context"
 export default function BillCard ({product}) {
     const {cartState, cartDispatch} = useCart();
     const {cartProducts} = cartState;
-    console.log("FOR PRICE", cartProducts);
     const cartTotal = cartProducts.reduce(
         (prev,curr) => prev + curr.price*curr.quantity,0   
     )
