@@ -22,4 +22,15 @@
       color: var(--black-text);
       padding-bottom: 2rem;
   }
+
+  .empty_wishlist_img img{
+    width: 20rem;
+    height: 20rem;
+  }
+
+  .wishlist-msg{
+    display: flex;
+    justify-content: center;
+    color: var(--primary-color);
+  }
   
