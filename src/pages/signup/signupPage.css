@@ -35,7 +35,7 @@
     position: relative;
 }
 
-.password-mismatch-msg{
+.validation-msg{
     padding-bottom: 1rem;
     color: var(--alert-danger);
 }

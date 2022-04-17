@@ -34,16 +34,10 @@ export default function SignUpCard() {
     } catch (error) {
       console.log(error);
     }
-  };
-  console.log(userCred.password,confirmPassword);
+}
   return (
     <div className="login-page">
       <form
-        disabled={
-          confirmPassword !== userCred.password &&
-          confirmPassword !== "" &&
-          userCred.password !== "" 
-        }
         onSubmit={(e) => {
           e.preventDefault();
           signUpHandler(userCred);
@@ -118,10 +112,16 @@ export default function SignUpCard() {
               />
               {confirmPassword !== userCred.password &&
                 confirmPassword !== "" &&
-                userCred.password !== "" && <div className="password-mismatch-msg">Password Mismatch</div>}
+                userCred.password !== "" && <div className="validation-msg">Password Mismatch</div>}
             </div>
           </div>
-          <button className="btn primary-btn">
+          <button 
+          disabled={
+            confirmPassword !== userCred.password &&
+            confirmPassword !== "" &&
+            userCred.password !== "" 
+          }
+          className="btn primary-btn">
             <p>Create Account</p>
           </button>
           <Link className="greater-than-anchor" to="/login">
