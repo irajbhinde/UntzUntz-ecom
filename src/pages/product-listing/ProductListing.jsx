@@ -18,14 +18,14 @@ export default function ProductListing() {
   const {
     state: { sortByPrice, sortByRating, categories },
   } = useProduct();
-  const [data, setData] = useState([]);
+  const [productData, setProductData] = useState([]);
 
 
   useEffect(() => {
     async function getData() {
       try {
-        const response = await axios("/api/products");
-        setData(response.data.products);
+        const response = await axios.get("/api/products");
+        setProductData(response.data.products);
       } catch (error) {
         console.log(error);
       }
@@ -33,7 +33,7 @@ export default function ProductListing() {
     getData();
   }, []);
 
-  const sortedData = getSortedData(data, sortByPrice);
+  const sortedData = getSortedData(productData, sortByPrice);
 
   const sortedDataRating = getSortByRatingData(sortedData, sortByRating);
 

@@ -1,10 +1,18 @@
-import { Link } from "react-router-dom";
-import { useCart } from "../../context/cart-context";
+import { Link, useNavigate } from "react-router-dom";
+import { useAuth, useCart } from "../../context/index";
+import { addToCart } from "../../services/cart-services/cart-functions";
+import {
+  addToWishlist,
+  removeFromWishlist,
+} from "../../services/wishlist-services/wishlist-functions";
 
 export default function ProductCard({ product, key }) {
   const { _id, title, image, subtitle, price, rating } = product;
   const { cartState, cartDispatch } = useCart();
   const { cartProducts, wishlistProducts } = cartState;
+  const { auth, setAuth } = useAuth();
+  const { authToken, authStatus } = auth;
+  const navigate = useNavigate();
   return (
     <>
       <div className="cards productPage">
@@ -21,15 +29,17 @@ export default function ProductCard({ product, key }) {
           </div>
         </div>
         <div className="buttons_icons flex_c">
-          {cartProducts.find((prod) => prod._id === product._id) ? (
+          {authStatus && cartProducts.find((prod) => prod._id === product._id) ? (
             <button className="bg-gray btn-card vertical-card">
               <Link to="/cart">Go to cart</Link>
             </button>
           ) : (
             <button
-              onClick={() =>
-                cartDispatch({ type: "ADD_TO_CART", payload: product })
-              }
+              onClick={() => {
+                authStatus
+                  ? addToCart(product, cartDispatch, authToken)
+                  : navigate("/login");
+              }}
               className="btn-card vertical-card"
             >
               Add to cart
@@ -38,7 +48,7 @@ export default function ProductCard({ product, key }) {
           {wishlistProducts.find((prod) => prod._id === product._id) ? (
             <button
               onClick={() =>
-                cartDispatch({ type: "REMOVE_FROM_WISHLIST", payload: product })
+                removeFromWishlist(product, cartDispatch, authToken)
               }
               className="bg-none btn-card vertical-card"
             >
@@ -46,9 +56,13 @@ export default function ProductCard({ product, key }) {
             </button>
           ) : (
             <button
-              onClick={() =>
-                cartDispatch({ type: "ADD_TO_WISHLIST", payload: product })
-              }
+              onClick={() => {
+                auth.authStatus
+                  ? addToWishlist(product, cartDispatch, authToken)
+                  : (
+                    navigate("/login")
+                  )
+              }}
               className="bg-none btn-card vertical-card"
             >
               Add to Wishlist

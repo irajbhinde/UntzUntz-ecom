@@ -1,6 +1,5 @@
 export const cartReducer = (state, action) => {
     const {type, payload} = action
-    console.log(action.type)
     switch(type){
         case "ADD_TO_CART":
             return{
@@ -22,15 +21,15 @@ export const cartReducer = (state, action) => {
                 ...state,
                 wishlistProducts : [...state.wishlistProducts, payload]
             }
-        case "INCREASE_QTY":
+        case "increment":
             return{
                 ...state,
-                cartProducts : state.cartProducts.map((item) => item._id === payload._id ? {...item, quantity : item.quantity +1 } : item) 
+                cartProducts : state.cartProducts.map((item) => item._id === payload ? {...item, quantity : item.quantity +1 } : item) 
             }
-        case "DECREASE_QTY":
+        case "decrement":
             return{
                 ...state,
-                cartProducts : state.cartProducts.map((item) => item._id === payload._id ? {...item, quantity : item.quantity > 1 ? item.quantity - 1 : item.quantity } : item )
+                cartProducts : state.cartProducts.map((item) => item._id === payload ? {...item, quantity : item.quantity > 1 ? item.quantity - 1 : item.quantity } : item )
             }
     }
 }

@@ -1,9 +1,24 @@
-import { Link } from "react-router-dom";
-import { useCart } from "../../context/cart-context";
+import { Link, useNavigate } from "react-router-dom";
+import { useCart, useAuth } from "../../context/index";
+
 
 export default function CartNav (){
   const {cartState} = useCart();
   const {cartProducts, wishlistProducts} = cartState
+  const { auth, setAuth } = useAuth();
+  const {authStatus, authToken} = auth
+  const navigate = useNavigate();
+
+  const signoutHandler = () => {
+    
+    localStorage.clear();
+    setAuth({
+        authToken : null,
+        authStatus : false
+    })
+    navigate("/home")
+}
+
     return(
         <nav>
       <div className="nav-bar">
@@ -22,7 +37,7 @@ export default function CartNav (){
         </div>
         <div className="right-navbar">
           <Link to="/productlisting"><i className="fa-solid fa-arrow-left-long"></i>Back to Products</Link>
-          <Link to="/logout">Logout</Link>
+          <p onClick={signoutHandler}>Logout</p>
           <Link to="/cart">
             <i className="fa-solid fa-cart-shopping"></i>
             <span class="cart-badge">{cartProducts.length}</span>

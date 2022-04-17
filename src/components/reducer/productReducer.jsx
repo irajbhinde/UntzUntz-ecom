@@ -1,15 +1,15 @@
 export const productReducer = (state, action) => {
-  console.log(action.type);
-  switch (action.type) {
+  const {type, payload} = action;
+  switch (type) {
     case "SORT":
       return {
         ...state,
-        sortByPrice: action.payload,
+        sortByPrice: payload,
       };
     case "RATINGS":
       return {
         ...state,
-        sortByRating: action.payload,
+        sortByRating: payload,
       };
     case "ANJUNADEEP":
       return {

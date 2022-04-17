@@ -97,3 +97,24 @@
   border-radius: 50%;
   background-color: var(--primary-color);
 }
+
+.empty_cart_img{
+  display: flex;
+  width: 20rem;
+  height: 20rem;
+  gap: 2rem;
+}
+
+.cart-msg{
+  display: flex;
+  color: var(--primary-color);
+}
+
+.empty-cart-box{
+  display: flex;
+  margin-top: 5rem;
+}
+
+.justify_center{
+  justify-content: center;
+}

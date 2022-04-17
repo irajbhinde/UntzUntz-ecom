@@ -9,6 +9,10 @@ import  {ProductProvider}  from "../components/context/product-context";
 import  CartNav  from "./CartComponents/cartNav/CartNav"
 import  CartCard  from "./CartComponents/CartCard/CartCard";
 import  BillCard  from "./CartComponents/CartCard/BillCard";
+import LoginCard from "./login_signup/LoginCard";
+import SignUpCard from "./login_signup/SignupCard";
+import { addToCart, deleteFromCart, updateQuantity } from "./services/cart-services/cart-functions";
+import { addToWishlist, removeFromWishlist } from "./services/wishlist-services/wishlist-functions";
 
 export {
   Nav,
@@ -21,5 +25,12 @@ export {
   ProductProvider,
   CartNav,
   CartCard,
-  BillCard
+  BillCard,
+  LoginCard,
+  SignUpCard,
+  addToCart,
+  deleteFromCart,
+  updateQuantity,
+  addToWishlist,
+  removeFromWishlist
 };

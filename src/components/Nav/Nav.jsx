@@ -1,6 +1,19 @@
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
+import { useAuth } from "../context/index"
 
 export default function Nav () {
+    const navigate = useNavigate();
+    const {auth, setAuth} = useAuth();
+
+    const signoutHandler = () => {
+        localStorage.removeItem("token")
+        setAuth({
+            authToken : null,
+            authStatus : false
+        })
+        navigate("/home")
+    }
+    
     return (
         <nav>
             <div className="nav-bar">
@@ -15,11 +28,22 @@ export default function Nav () {
                         placeholder="Search for products, brands & more" />
                 </div>
                 <div className="right-navbar">
-                    <Link to="/login">Login</Link>
-                    <Link to="/signup">Signup</Link>
+                    {auth.authStatus ? (
+                        <div className="right-navbar" onClick={signoutHandler}>Logout</div>
+                    ) : (
+                        <>
+                        <div className="right-navbar">
+                            <Link to="/login">Login</Link>
+                            <Link to="/signup">Signup</Link>    
+                        </div>
+                        </>
+                    )}
+                    
                     <Link to="/home">Explore</Link>
                 </div>
             </div>
         </nav>
     )
 }
+
+

@@ -1,8 +1,11 @@
-import { useCart } from "../../context/cart-context";
+import { useAuth,useCart } from "../../context/index";
+import { deleteFromCart, updateQuantity } from "../../services/cart-services/cart-functions";
+import { addToWishlist } from "../../services/wishlist-services/wishlist-functions";
 
 export default function CartCard({ product }) {
   const { cartState, cartDispatch } = useCart();
-  const { wishlistProducts } = cartState;
+  const {auth} = useAuth();
+  const {authToken, authStatus} = auth;
   return (
     <>
       <div className="cards horizontal">
@@ -13,14 +16,14 @@ export default function CartCard({ product }) {
               ₹{product.price}
               <i
                 onClick={() =>
-                  cartDispatch({ type: "DECREASE_QTY", payload: product })
+                updateQuantity("decrement",product, cartDispatch, authToken)
                 }
                 className="fa-solid fa-minus"
               ></i>{" "}
               {product.quantity}
               <i
                 onClick={() =>
-                  cartDispatch({ type: "INCREASE_QTY", payload: product })
+                  updateQuantity("increment",product, cartDispatch, authToken)
                 }
                 className="fa-solid fa-plus"
               ></i>
@@ -28,13 +31,13 @@ export default function CartCard({ product }) {
 
             <div className="buttons_icons flex_c">
               <button 
-              onClick={()=> cartDispatch({type: "REMOVE_FROM_CART", payload: product})}className="bg-none btn-card vertical-card">
+              onClick={()=>deleteFromCart(product, cartDispatch, authToken)}className="bg-none btn-card vertical-card">
                 Remove from cart
               </button>
               <button 
-              onClick={()=>cartDispatch({type:"ADD_TO_WISHLIST", payload: product})}
+              onClick={()=>addToWishlist(product, cartDispatch, authToken)}
               className="bg-gray btn-card vertical-card">
-                Move to Wishlist
+                Add to Wishlist
               </button>
             </div>
           </div>
