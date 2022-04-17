@@ -1,11 +1,12 @@
 import { Link, useNavigate } from "react-router-dom";
-import { useAuth, useCart } from "../../context/index";
+import { useAuth, useCart, useProduct } from "../../context/index";
 
 
 export default function HomeNav() {
   const navigate = useNavigate();
   const { auth, setAuth } = useAuth();
   const {authStatus} = auth;
+  const {state, dispatch} = useProduct();
   const {cartState} = useCart();
   const {cartProducts, wishlistProducts} = cartState
 
@@ -36,7 +37,9 @@ export default function HomeNav() {
           />
         </div>
         <div className="home_nav right-navbar">
-          <Link to="/productlisting">Explore All</Link>
+          <Link 
+          onClick={()=>dispatch({type:"CLEAR_FILTERS"})}
+          to="/productlisting">Explore All</Link>
           {auth.authStatus ? (
             <div className="right-navbar" onClick={signoutHandler}>
               Logout
