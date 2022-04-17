@@ -8,6 +8,8 @@ const initialState = {
     Anjunadeep: false,
     Anjunabeats: false,
     Above_And_Beyond: false,
+    CDs: false,
+    Posters: false
   },
 };
 
