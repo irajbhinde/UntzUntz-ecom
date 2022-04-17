@@ -1,6 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
-import { useAuth } from "../../context/auth-context";
-import { useCart } from "../../context/cart-context";
+import { useAuth,useCart } from "../../context/index";
 
 
 export default function PdNav() {

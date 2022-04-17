@@ -5,8 +5,7 @@ import App from "./App";
 import { makeServer } from "./server";
 import { BrowserRouter } from "react-router-dom";
 import {ProductProvider} from "../src/components/context/product-context"
-import { CartProvider } from "./components/context/cart-context"
-import { AuthProvider } from "./components/context/auth-context";
+import { CartProvider, AuthProvider } from "./components/context/index"
 
 // Call make Server
 makeServer();

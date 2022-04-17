@@ -1,5 +1,4 @@
-import { useAuth } from "../../context/auth-context";
-import { useCart } from "../../context/cart-context";
+import { useAuth,useCart } from "../../context/index";
 import { deleteFromCart, updateQuantity } from "../../services/cart-services/cart-functions";
 import { addToWishlist } from "../../services/wishlist-services/wishlist-functions";
 

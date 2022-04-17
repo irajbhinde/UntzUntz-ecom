@@ -1,5 +1,5 @@
 import { Link, useNavigate } from "react-router-dom"
-import { useAuth } from "../context/auth-context"
+import { useAuth } from "../context/index"
 
 export default function Nav () {
     const navigate = useNavigate();

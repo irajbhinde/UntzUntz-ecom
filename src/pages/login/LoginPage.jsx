@@ -1,5 +1,4 @@
-import LoginCard from "../../components/login_signup/LoginCard"
-import Nav from "../../components/Nav/Nav"
+import {LoginCard, Nav }from "../../components/index"
 import "../login/loginPage.css"
 
 export default function LoginPage(){

@@ -1,6 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
-import { useCart } from "../../context/cart-context";
-import { useAuth } from "../../context/auth-context";
+import { useCart, useAuth } from "../../context/index";
+
 
 export default function CartNav (){
   const {cartState} = useCart();
