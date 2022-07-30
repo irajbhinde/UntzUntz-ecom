@@ -15,7 +15,7 @@ export default function WishListCard({ product }) {
     <div className="cards productPage">
       <div className="img_text">
         <span className="top-left-badge">On Sale</span>
-        <i className="fas fa-heart fa-lg top-right-badge"></i>
+        {/* <i className="fas fa-heart fa-lg top-right-badge"></i> */}
 
         <img className="cards-image" src={product.image} />
         <div className="cards-title vertical-card">

@@ -28,13 +28,13 @@ export default function PdNav() {
             </Link>
           </h2>
         </div>
-        <div className="search-bar flex_r">
+        {/* <div className="search-bar flex_r">
           <i className="search-icon fa-solid fa-magnifying-glass"></i>
           <input
             type="search"
             placeholder="Search for products, brands & more"
           />
-        </div>
+        </div> */}
         <div className="right-navbar">
           <Link to="/home">
             <i className="fa-solid fa-arrow-left-long"></i>Back to Home
