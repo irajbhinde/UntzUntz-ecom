@@ -1,6 +1,7 @@
 import MockmanEs from "mockman-js";
 import { Routes, Route } from "react-router-dom";
 import RequiresAuth from "../../components/services/login-services/RequiresAuth.js";
+import CheckoutPage from "../Checkout Page/CheckoutPage.jsx";
 
 import {
   LandingPage,
@@ -24,6 +25,14 @@ const RouterPage = () => {
         element={
           <RequiresAuth>
             <CartPage />
+          </RequiresAuth>
+        }
+      />
+      <Route
+        path="/checkout"
+        element={
+          <RequiresAuth>
+            <CheckoutPage />
           </RequiresAuth>
         }
       />

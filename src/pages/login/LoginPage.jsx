@@ -3,7 +3,8 @@ import "../login/loginPage.css"
 
 export default function LoginPage(){
     return (
-        <><Nav />
+        <>
+        <Nav />
         <LoginCard/>
         </>
     )
