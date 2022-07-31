@@ -55,13 +55,13 @@ export default function HomeNav() {
 
           <Link to="/cart">
             <i className="fa-solid fa-cart-shopping"></i>
-            <span class="home_c cart-badge">
+            <span className="home_c cart-badge">
               {authStatus ? cartProducts.length : 0}
             </span>
           </Link>
           <Link to="/wishlist">
             <i className="fa-solid fa-heart"></i>
-            <span class="home_w wishlist-badge">
+            <span className="home_w wishlist-badge">
               {authStatus ? wishlistProducts.length : 0}
             </span>
           </Link>

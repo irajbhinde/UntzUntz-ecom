@@ -40,7 +40,7 @@ export default function CartNav (){
           <p onClick={signoutHandler}>Logout</p>
           <Link to="/cart">
             <i className="fa-solid fa-cart-shopping"></i>
-            <span class="cart-badge">{cartProducts.length}</span>
+            <span className="cart-badge">{cartProducts.length}</span>
           </Link>
           <Link to="/wishlist">
             <i className="fa-solid fa-heart"></i>

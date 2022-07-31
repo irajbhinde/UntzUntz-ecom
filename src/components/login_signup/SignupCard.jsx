@@ -90,7 +90,7 @@ export default function SignUpCard() {
                       passType === "password" ? "text" : "password"
                     )
                   }
-                  class="pass-icon fa-solid fa-eye"
+                  className="pass-icon fa-solid fa-eye"
                 ></i>
               ) : (
                 <i
@@ -99,7 +99,7 @@ export default function SignUpCard() {
                       passType === "password" ? "text" : "password"
                     )
                   }
-                  class="pass-icon fa-solid fa-eye-slash"
+                  className="pass-icon fa-solid fa-eye-slash"
                 ></i>
               )}
               <p className="input-title"> Confirm Password*</p>

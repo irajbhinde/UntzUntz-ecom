@@ -18,7 +18,7 @@ export default function HomePage() {
   return (
     <>
       <HomeNav />
-      <div class="doc-home">
+      <div className="doc-home">
         <div className="home-cards">
           <HomePageCard navigationByCategory={navigationByCategory} />
         </div>
