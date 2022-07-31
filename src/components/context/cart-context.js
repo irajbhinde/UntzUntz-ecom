@@ -1,4 +1,4 @@
-import { createContext, useContext, useReducer } from "react";
+import { createContext, useContext, useReducer, useState } from "react";
 import { cartReducer } from "../reducer/cartReducer";
 import { v4 as uuid } from "uuid";
 
@@ -25,9 +25,10 @@ const initialState = {
 const CartContext = createContext(null);
 const useCart = () => useContext(CartContext);
 const CartProvider = ({ children }) => {
+  const [razorpayId, setRazorpayId] = useState();
   const [cartState, cartDispatch] = useReducer(cartReducer, initialState);
   return (
-    <CartContext.Provider value={{ cartState, cartDispatch }}>
+    <CartContext.Provider value={{ cartState, cartDispatch, razorpayId, setRazorpayId }}>
       {children}
     </CartContext.Provider>
   );

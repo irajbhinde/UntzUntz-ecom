@@ -81,6 +81,8 @@
 .btn.checkout {
   margin-top: 1rem;
   width: 20rem;
+  height: 3.3rem;
+  align-items: center;
 }
 
 #apply-coupon {

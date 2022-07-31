@@ -49,5 +49,10 @@ export const cartReducer = (state, action) => {
         ...state,
         userAddress: [...state.userAddress, payload],
       };
+    case "CLEAR_CART" :
+      return{
+        ...state,
+        cartProducts : []
+      }
   }
 };

@@ -1,0 +1,24 @@
+.confirm-img-and-orderId {
+  display: flex;
+  width: 20rem;
+  height: 20rem;
+  margin-top: 5rem;
+}
+
+.order-details {
+  margin-top: 2rem;
+}
+
+.btn-returnToHome {
+  width: max-content;
+  padding: 1rem;
+  cursor: pointer;
+  border-radius: 5px;
+  background-color: var;
+  background-color: var(--primary-color);
+  border: none;
+}
+
+.btn-container {
+  margin: 2rem auto 0 auto;
+}

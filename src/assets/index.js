@@ -14,15 +14,15 @@ import poster from "./home_page_images/poster.png";
 import cds from "./home_page_images/image_cd.png";
 import newarrivals from "./home_page_images/bottom_1.jpg";
 import trending from "./home_page_images/bottom_2.jpg";
-import ab_poster from "./product_card_images/A_B-Flag-black-Gray.webp"
-import anjuna_cloth from "./product_card_images/Anjunabeatstie-dyeTee.webp"
-import lane8_poster from "./product_card_images/Lane8Flag_1_540x.webp"
-import cubic_cd from "./product_card_images/cubic_cd.jpg"
-import leaving_laurel_cd from "./product_card_images/leaving_laurel_cd.jpg"
+import ab_poster from "./product_card_images/A_B-Flag-black-Gray.webp";
+import anjuna_cloth from "./product_card_images/Anjunabeatstie-dyeTee.webp";
+import lane8_poster from "./product_card_images/Lane8Flag_1_540x.webp";
+import cubic_cd from "./product_card_images/cubic_cd.jpg";
+import leaving_laurel_cd from "./product_card_images/leaving_laurel_cd.jpg";
 import image_404 from "./404.svg";
-import empty_cart_image from "./product_card_images/undraw_empty_cart_co35.svg"
-import empty_wishlist_image from "./product_card_images/undraw_wishlist_re_m7tv.svg"
-
+import empty_cart_image from "./product_card_images/undraw_empty_cart_co35.svg";
+import empty_wishlist_image from "./product_card_images/undraw_wishlist_re_m7tv.svg";
+import order_confirmed_image from "../assets/order-confirmed.svg";
 
 export {
   trending,
@@ -48,5 +48,6 @@ export {
   leaving_laurel_cd,
   image_404,
   empty_cart_image,
-  empty_wishlist_image
+  empty_wishlist_image,
+  order_confirmed_image,
 };

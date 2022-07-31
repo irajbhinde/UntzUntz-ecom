@@ -4,12 +4,65 @@ import { useCart } from "../../components/context";
 import "./checkout-page.css";
 import { useFormik } from "formik";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function CheckoutPage() {
-  const { cartState, cartDispatch } = useCart();
-  const { userAddress } = cartState;
+  const navigate = useNavigate();
+  const { cartState, cartDispatch, razorpayId, setRazorpayId } = useCart();
+  const { userAddress, cartProducts } = cartState;
   const [addNewAddress, setAddNewAddress] = useState(false);
-  const [selectedAddress, setSelectedAddress] = useState();
+  const [selectedAddress, setSelectedAddress] = useState(false);
+  const cartTotal = cartProducts.reduce(
+    (prev, curr) => prev + curr.price * curr.quantity,
+    0
+  );
+  console.log("this add was selected", selectedAddress);
+
+  const script = document.createElement("script");
+  script.src = "https://checkout.razorpay.com/v1/checkout.js";
+  const loadRazorPayScript = async () => {
+    return new Promise((resolve) => {
+      script.onload = () => {
+        resolve(true);
+      };
+      script.onerror = () => {
+        resolve(false);
+      };
+      document.body.appendChild(script);
+    });
+  };
+  const navigateToRazorPayGateway = async () => {
+    const response = await loadRazorPayScript();
+    if (!response) {
+      alert("Faile to load Razorpay Script");
+    }
+    const options = {
+      key: "rzp_test_bbW33TmJKfuIdq",
+      amount: cartTotal * 100,
+      currency: "INR",
+      name: "Untz Untz- The Music Store",
+      description: "Thank you for shopping with us!",
+      image:
+        "https://mern-blog-akky.herokuapp.com/static/media/logo.8c649bfa.png",
+      handler: function (response) {
+        console.log("razorpay rest", response);
+        const { razorpay_payment_id } = response;
+        setRazorpayId(razorpay_payment_id);
+        document.body.removeChild(script);
+        setTimeout(() => {
+          navigate("/confirmationPage");
+          cartDispatch({type : "CLEAR_CART"})
+        }, 2500);
+      },
+      prefill: {
+        name: "Raj",
+        email: "rajbhinde1@gmail.com",
+        contact: "8767212313",
+      },
+    };
+    const rzp1 = new window.Razorpay(options);
+    rzp1.open();
+  };
   const formik = useFormik({
     initialValues: {
       userName: "",
@@ -49,7 +102,7 @@ export default function CheckoutPage() {
                       name="user-address"
                       type="radio"
                     />
-                    <b for="guest-user">{address.userName}</b>
+                    <b forname="guest-user">{address.userName}</b>
                     <b>{address.phoneNumber}</b>
                   </span>
                   <span className="flat_details flex_c">
@@ -169,12 +222,30 @@ export default function CheckoutPage() {
           </div>
 
           <div className="bill-and-address-container flex_c">
-            <BillCard />
+            <div className="final-bill-card flex_c">
+              <h3>PRICE DETAILS ({cartProducts.length} Items)</h3>
+              <div className="bill-container flex_r">
+                <p>Total MRP</p>
+                <p>₹{cartTotal}</p>
+              </div>
+              <div className="bill-container flex_r">
+                <p>Discount on MRP</p>
+                <p>₹0</p>
+              </div>
+              <div className="bill-container border-bottom flex_r">
+                <p>Convenience Fee</p>
+                <p>₹0</p>
+              </div>
+              <div className="bill-container total-amount flex_r">
+                <p>Total Amount</p>
+                <p>₹{cartTotal}</p>
+              </div>
+            </div>
             {selectedAddress ? (
               <div className="selectedAddress-card">
                 <h3>DELIVER AT</h3>
                 <span className="selected-name_number flex_r">
-                  <b for="guest-user">{selectedAddress.userName}</b>
+                  <b forname="guest-user">{selectedAddress.userName}</b>
                   <b>{selectedAddress.phoneNumber}</b>
                 </span>
                 <span className="selected-flat_details flex_c">
@@ -186,6 +257,20 @@ export default function CheckoutPage() {
                   </p>
                 </span>
               </div>
+            ) : (
+              <></>
+            )}
+            <button
+              className="final-checkout-btn"
+              disabled={selectedAddress === false}
+              onClick={() => {
+                navigateToRazorPayGateway();
+              }}
+            >
+              Checkout
+            </button>
+            {selectedAddress === false ? (
+              <p className="addr-error flex_r">Please Select An Address</p>
             ) : (
               <></>
             )}
