@@ -8,15 +8,11 @@ import { useNavigate } from "react-router-dom";
 
 export default function CheckoutPage() {
   const navigate = useNavigate();
-  const { cartState, cartDispatch, razorpayId, setRazorpayId } = useCart();
+  const { cartState, cartDispatch, razorpayId, setRazorpayId, cartPrice } =
+    useCart();
   const { userAddress, cartProducts } = cartState;
   const [addNewAddress, setAddNewAddress] = useState(false);
   const [selectedAddress, setSelectedAddress] = useState(false);
-  const cartTotal = cartProducts.reduce(
-    (prev, curr) => prev + curr.price * curr.quantity,
-    0
-  );
-  console.log("this add was selected", selectedAddress);
 
   const script = document.createElement("script");
   script.src = "https://checkout.razorpay.com/v1/checkout.js";
@@ -38,7 +34,7 @@ export default function CheckoutPage() {
     }
     const options = {
       key: "rzp_test_bbW33TmJKfuIdq",
-      amount: cartTotal * 100,
+      amount: cartPrice * 100,
       currency: "INR",
       name: "Untz Untz- The Music Store",
       description: "Thank you for shopping with us!",
@@ -51,8 +47,8 @@ export default function CheckoutPage() {
         document.body.removeChild(script);
         setTimeout(() => {
           navigate("/confirmationPage");
-          cartDispatch({type : "CLEAR_CART"})
-        }, 2500);
+          cartDispatch({ type: "CLEAR_CART" });
+        }, 1500);
       },
       prefill: {
         name: "Raj",
@@ -102,7 +98,7 @@ export default function CheckoutPage() {
                       name="user-address"
                       type="radio"
                     />
-                    <b forname="guest-user">{address.userName}</b>
+                    <b htmlFor="guest-user">{address.userName}</b>
                     <b>{address.phoneNumber}</b>
                   </span>
                   <span className="flat_details flex_c">
@@ -226,7 +222,7 @@ export default function CheckoutPage() {
               <h3>PRICE DETAILS ({cartProducts.length} Items)</h3>
               <div className="bill-container flex_r">
                 <p>Total MRP</p>
-                <p>₹{cartTotal}</p>
+                <p>₹{cartPrice}</p>
               </div>
               <div className="bill-container flex_r">
                 <p>Discount on MRP</p>
@@ -238,14 +234,14 @@ export default function CheckoutPage() {
               </div>
               <div className="bill-container total-amount flex_r">
                 <p>Total Amount</p>
-                <p>₹{cartTotal}</p>
+                <p>₹{cartPrice}</p>
               </div>
             </div>
             {selectedAddress ? (
               <div className="selectedAddress-card">
                 <h3>DELIVER AT</h3>
                 <span className="selected-name_number flex_r">
-                  <b forname="guest-user">{selectedAddress.userName}</b>
+                  <b htmlFor="guest-user">{selectedAddress.userName}</b>
                   <b>{selectedAddress.phoneNumber}</b>
                 </span>
                 <span className="selected-flat_details flex_c">

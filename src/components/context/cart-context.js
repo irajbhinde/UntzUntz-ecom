@@ -5,7 +5,6 @@ import { v4 as uuid } from "uuid";
 const initialState = {
   cartProducts: [],
   wishlistCount: 0,
-  cartPrice: 0,
   wishlistProducts: [],
   userAddress: [
     {
@@ -26,9 +25,10 @@ const CartContext = createContext(null);
 const useCart = () => useContext(CartContext);
 const CartProvider = ({ children }) => {
   const [razorpayId, setRazorpayId] = useState();
+  const [cartPrice, setCartPrice] = useState(0);
   const [cartState, cartDispatch] = useReducer(cartReducer, initialState);
   return (
-    <CartContext.Provider value={{ cartState, cartDispatch, razorpayId, setRazorpayId }}>
+    <CartContext.Provider value={{ cartState, cartDispatch, razorpayId, setRazorpayId, cartPrice, setCartPrice }}>
       {children}
     </CartContext.Provider>
   );
