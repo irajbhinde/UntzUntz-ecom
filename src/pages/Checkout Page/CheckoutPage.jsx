@@ -2,7 +2,6 @@ import { BillCard } from "../../components";
 import CartNav from "../../components/CartComponents/cartNav/CartNav";
 import { useCart } from "../../components/context";
 import "./checkout-page.css";
-import { useFormik } from "formik";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -13,6 +12,17 @@ export default function CheckoutPage() {
   const { userAddress, cartProducts } = cartState;
   const [addNewAddress, setAddNewAddress] = useState(false);
   const [selectedAddress, setSelectedAddress] = useState(false);
+  const initialState = {
+    userName: "",
+    phoneNumber: "",
+    addressLineOne: "",
+    addressLineTwo: "",
+    pincode: "",
+    city: "",
+    town: "",
+    state: "",
+  };
+  const [userDetails, setUserDetails] = useState(initialState);
 
   const script = document.createElement("script");
   script.src = "https://checkout.razorpay.com/v1/checkout.js";
@@ -59,23 +69,23 @@ export default function CheckoutPage() {
     const rzp1 = new window.Razorpay(options);
     rzp1.open();
   };
-  const formik = useFormik({
-    initialValues: {
-      userName: "",
-      phoneNumber: "",
-      addressLineOne: "",
-      addressLineTwo: "",
-      pincode: "",
-      city: "",
-      town: "",
-      state: "",
-    },
+  // const formik = useFormik({
+  //   initialValues: {
+  //     userName: "",
+  //     phoneNumber: "",
+  //     addressLineOne: "",
+  //     addressLineTwo: "",
+  //     pincode: "",
+  //     city: "",
+  //     town: "",
+  //     state: "",
+  //   },
 
-    onSubmit: (values, { resetForm }) => {
-      cartDispatch({ type: "ADD_ADDRESS", payload: values });
-      resetForm();
-    },
-  });
+  //   onSubmit: (values, { resetForm }) => {
+  //     cartDispatch({ type: "ADD_ADDRESS", payload: values });
+  //     resetForm();
+  //   },
+  // });
 
   return (
     <>
@@ -129,7 +139,14 @@ export default function CheckoutPage() {
               {addNewAddress ? (
                 <>
                   <form
-                    onSubmit={formik.handleSubmit}
+                    onSubmit={(e) => {
+                      e.preventDefault();
+                      cartDispatch({
+                        type: "ADD_ADDRESS",
+                        payload: userDetails,
+                      });
+                      setUserDetails(initialState);
+                    }}
                     className="addr-form-container flex_c"
                   >
                     <div className="addr-input-container flex_r">
@@ -137,15 +154,25 @@ export default function CheckoutPage() {
                         placeholder="Name*"
                         id="userName"
                         type="text"
-                        onChange={formik.handleChange}
-                        value={formik.values.userName}
+                        onChange={(e) =>
+                          setUserDetails({
+                            ...userDetails,
+                            userName: e.target.value,
+                          })
+                        }
+                        value={userDetails.userName}
                       />
                       <input
                         placeholder="Mobile Number*"
                         id="phoneNumber"
                         type="number"
-                        onChange={formik.handleChange}
-                        value={formik.values.phoneNumber}
+                        onChange={(e) =>
+                          setUserDetails({
+                            ...userDetails,
+                            phoneNumber: e.target.value,
+                          })
+                        }
+                        value={userDetails.phoneNumber}
                       />
                     </div>
                     <div className="addr-input-container flex_r">
@@ -154,15 +181,25 @@ export default function CheckoutPage() {
                         id="pincode"
                         type="number"
                         maxLength={6}
-                        onChange={formik.handleChange}
-                        value={formik.values.pincode}
+                        onChange={(e) =>
+                          setUserDetails({
+                            ...userDetails,
+                            pincode: e.target.value,
+                          })
+                        }
+                        value={userDetails.pincode}
                       />
                       <input
                         placeholder="City*"
                         id="city"
                         type="text"
-                        onChange={formik.handleChange}
-                        value={formik.values.city}
+                        onChange={(e) =>
+                          setUserDetails({
+                            ...userDetails,
+                            city: e.target.value,
+                          })
+                        }
+                        value={userDetails.city}
                       />
                     </div>
                     <div className="addr-input-container flex_r">
@@ -170,41 +207,79 @@ export default function CheckoutPage() {
                         placeholder="Town*"
                         id="town"
                         type="text"
-                        onChange={formik.handleChange}
-                        value={formik.values.town}
+                        onChange={(e) =>
+                          setUserDetails({
+                            ...userDetails,
+                            town: e.target.value,
+                          })
+                        }
+                        value={userDetails.town}
                       />
                       <input
                         placeholder="State*"
                         id="state"
                         type="text"
-                        onChange={formik.handleChange}
-                        value={formik.values.state}
+                        onChange={(e) =>
+                          setUserDetails({
+                            ...userDetails,
+                            state: e.target.value,
+                          })
+                        }
+                        value={userDetails.state}
                       />
                     </div>
                     <input
                       placeholder="Address Line One*"
                       id="addressLineOne"
                       type="text"
-                      onChange={formik.handleChange}
-                      value={formik.values.addressLineOne}
+                      onChange={(e) =>
+                        setUserDetails({
+                          ...userDetails,
+                          addressLineOne: e.target.value,
+                        })
+                      }
+                      value={userDetails.addressLineOne}
                     />
                     <input
-                      placeholder="Address Line Two*"
+                      placeholder="Address Line Two"
                       id="addressLineTwo"
                       type="text"
-                      onChange={formik.handleChange}
-                      value={formik.values.addressLineTwo}
+                      onChange={(e) =>
+                        setUserDetails({
+                          ...userDetails,
+                          addressLineTwo: e.target.value,
+                        })
+                      }
+                      value={userDetails.addressLineTwo}
                     />
+
+                    <button
+                      onClick={(e) => {
+                        e.preventDefault();
+                        setUserDetails({
+                          userName: "Raj Bhinde",
+                          phoneNumber: "9814148211",
+                          addressLineOne: "Kalp Nagri, BR Road",
+                          addressLineTwo: "Opp. Achija Hotel, Mulund West",
+                          pincode: "400080",
+                          city: "Mumbai",
+                          town: "Mulund",
+                          state: "Maharashtra",
+                        });
+                      }}
+                      className="btn-autofill"
+                    >
+                      Auto Fill Dummy Data
+                    </button>
                     <input
                       disabled={
-                        formik.values.addressLineOne === "" ||
-                        formik.values.addressLineTwo === "" ||
-                        formik.values.phoneNumber === "" ||
-                        formik.values.pincode === "" ||
-                        formik.values.city === "" ||
-                        formik.values.state === "" ||
-                        formik.values.town === "" ||
-                        formik.values.userName === ""
+                        userDetails.addressLineOne === "" ||
+                        userDetails.phoneNumber === "" ||
+                        userDetails.pincode === "" ||
+                        userDetails.city === "" ||
+                        userDetails.state === "" ||
+                        userDetails.town === "" ||
+                        userDetails.userName === ""
                       }
                       className="btn-saveAddr"
                       type="submit"
