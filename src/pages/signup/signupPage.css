@@ -1,6 +1,6 @@
 .signup-container{
     width: 40rem;
-    height: 35rem;
+    height: 37rem;
     color: var(--black-text);
     display: flex;
     flex-direction: column;
@@ -38,4 +38,8 @@
 .validation-msg{
     padding-bottom: 1rem;
     color: var(--alert-danger);
+}
+
+.btn-autofill{
+    background-color: var(--bg-gray);
 }

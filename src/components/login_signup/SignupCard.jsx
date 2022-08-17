@@ -7,13 +7,13 @@ export default function SignUpCard() {
   const navigate = useNavigate();
   const { auth, setAuth } = useAuth();
   const [confirmPassword, setConfirmPassword] = useState("");
-
   const [passType, setPassType] = useState("password");
   const [userCred, setUserCred] = useState({
     firstName: "",
     lastName: "",
     email: "",
     password: "",
+    confirmPassword: ""
   });
 
   const signUpHandler = async (userCred) => {
@@ -105,25 +105,37 @@ export default function SignUpCard() {
               <p className="input-title"> Confirm Password*</p>
 
               <input
-                value={confirmPassword}
+                value={userCred.confirmPassword}
                 onChange={(e) => setConfirmPassword(e.target.value)}
                 type={passType}
                 className="input-field margin-bottom"
               />
-              {confirmPassword !== userCred.password &&
-                confirmPassword !== "" &&
+              {userCred.confirmPassword !== userCred.password &&
+                userCred.confirmPassword !== "" &&
                 userCred.password !== "" && <div className="validation-msg">Password Mismatch</div>}
             </div>
           </div>
           <button 
           disabled={
-            confirmPassword !== userCred.password &&
-            confirmPassword !== "" &&
-            userCred.password !== "" 
+            userCred.confirmPassword !== userCred.password ||
+            userCred.confirmPassword === "" ||
+            userCred.password === "" 
           }
           className="btn primary-btn">
             <p>Create Account</p>
           </button>
+          <button 
+          onClick={(e) => {
+            e.preventDefault();
+            setUserCred({
+              firstName : 'Raj',
+              lastName : 'Bhinde',
+              email : 'rajbhinde1@gmail.com',
+              password : 'Xyz@2002',
+              confirmPassword : 'Xyz@2002'
+            })
+          }}
+          className="btn-autofill btn primary-btn">Auto Fill</button>
           <Link className="greater-than-anchor" to="/login">
             Already have an account ?
           </Link>

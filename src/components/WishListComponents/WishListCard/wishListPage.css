@@ -12,6 +12,7 @@
   }
   
   .wishlist-cards {
+    flex-wrap: wrap;
     justify-content: center;
   }
   
