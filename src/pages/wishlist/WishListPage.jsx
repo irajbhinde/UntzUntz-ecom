@@ -9,7 +9,7 @@ export default function WishListPage() {
   return (
     <>
       <CartNav />
-      <div class="doc-wishlist flex_c">
+      <div className="doc-wishlist flex_c">
         <h1>My Wishlist</h1>
         {wishlistProducts.length === 0 ? (
           <div className="empty_wishlist_img">
@@ -17,7 +17,7 @@ export default function WishListPage() {
             <h2 className="wishlist-msg">Your wishlist is empty</h2>
           </div>
         ) : (
-          <div class="wishlist-cards flex_r">
+          <div className="wishlist-cards flex_r">
             {wishlistProducts.map((product) => {
               return <WishListCard product={product} key={product._id} />;
             })}

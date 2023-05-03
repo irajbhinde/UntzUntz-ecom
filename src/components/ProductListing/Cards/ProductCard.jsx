@@ -6,7 +6,7 @@ import {
   removeFromWishlist,
 } from "../../services/wishlist-services/wishlist-functions";
 
-export default function ProductCard({ product, key }) {
+export default function ProductCard({ product }) {
   const { _id, title, image, subtitle, price, rating } = product;
   const { cartState, cartDispatch } = useCart();
   const { cartProducts, wishlistProducts } = cartState;
@@ -18,7 +18,7 @@ export default function ProductCard({ product, key }) {
       <div className="cards productPage">
         <div className="img_text">
           <span className="top-left-badge">On Sale</span>
-          <i className="far fa-heart fa-lg top-right-badge"></i>
+          {/* <i className="far fa-heart fa-lg top-right-badge"></i> */}
 
           <img className="cards-image" src={image} />
           <div className="cards-title vertical-card">

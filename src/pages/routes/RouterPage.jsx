@@ -1,7 +1,6 @@
 import MockmanEs from "mockman-js";
 import { Routes, Route } from "react-router-dom";
 import RequiresAuth from "../../components/services/login-services/RequiresAuth.js";
-
 import {
   LandingPage,
   HomePage,
@@ -9,6 +8,8 @@ import {
   CartPage,
   WishListPage,
   NotFound,
+  ConfirmOrder,
+  CheckoutPage
 } from "../index.js";
 import LoginPage from "../login/LoginPage.jsx";
 import SignUpPage from "../signup/SignupPage.jsx";
@@ -28,10 +29,26 @@ const RouterPage = () => {
         }
       />
       <Route
+        path="/checkout"
+        element={
+          <RequiresAuth>
+            <CheckoutPage />
+          </RequiresAuth>
+        }
+      />
+      <Route
         path="/wishlist"
         element={
           <RequiresAuth>
             <WishListPage />
+          </RequiresAuth>
+        }
+      />
+      <Route
+        path="/confirmationPage"
+        element={
+          <RequiresAuth>
+            <ConfirmOrder />
           </RequiresAuth>
         }
       />

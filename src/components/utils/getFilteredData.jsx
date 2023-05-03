@@ -7,4 +7,4 @@ const getFilteredData = (productList, categories) => {
   );
 };
 
-export { getFilteredData };
+export { getFilteredData }

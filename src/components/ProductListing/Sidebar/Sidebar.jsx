@@ -21,31 +21,31 @@ export default function Sidebar() {
             <input id="anjunadeep" type="checkbox" 
             onChange={()=> dispatch({type:"ANJUNADEEP"})}
             checked={Anjunadeep} />{" "}
-            <label for="anjunadeep">Anjunadeep</label>{" "}
+            <label htmlFor="anjunadeep">Anjunadeep</label>{" "}
           </span>
           <span>
             <input id="anjunabeats" type="checkbox"
             onChange={()=> dispatch({type:"ANJUNABEATS"})}
             checked={Anjunabeats} />{" "}
-            <label for="anjunabeats">Anjunabeats</label>{" "}
+            <label htmlFor="anjunabeats">Anjunabeats</label>{" "}
           </span>
           <span>
             <input id="above-and-beyond" type="checkbox"
             onChange={()=> dispatch({type:"ABOVE_AND_BEYOND"})}
             checked={Above_And_Beyond} />{" "}
-            <label for="above-and-beyond">Above & Beyond</label>{" "}
+            <label htmlFor="above-and-beyond">Above & Beyond</label>{" "}
           </span>
           <span>
             <input id="posters" type="checkbox"
             onChange={()=> dispatch({type:"POSTERS"})}
             checked={Posters} />{" "}
-            <label for="posters">Posters</label>{" "}
+            <label htmlFor="posters">Posters</label>{" "}
           </span>
           <span>
             <input id="cds" type="checkbox"
             onChange={()=> dispatch({type:"CDS"})}
             checked={CDs} />{" "}
-            <label for="cds">CDs</label>{" "}
+            <label htmlFor="cds">CDs</label>{" "}
           </span>
         </div>
         <div className="input-container flex_c">
@@ -56,28 +56,28 @@ export default function Sidebar() {
               onChange={() => dispatch({type: "RATINGS", 
               payload: "FOUR_PLUS"})}
               checked={sortByRating === "FOUR_PLUS"} />{" "}
-              <label for="four-star">4 stars & above</label>
+              <label htmlFor="four-star">4 stars & above</label>
             </span>
             <span>
               <input id="three-star" type="radio" name="rating" value="3+" 
               onChange={() => dispatch({type: "RATINGS", 
               payload: "THREE_PLUS"})}
               checked={sortByRating === "THREE_PLUS"}/>{" "}
-              <label for="three-star">3 stars & above</label>
+              <label htmlFor="three-star">3 stars & above</label>
             </span>
             <span>
               <input id="two-star" type="radio" name="rating" value="2+" 
               onChange={() => dispatch({type: "RATINGS", 
               payload: "TWO_PLUS"})}
               checked={sortByRating === "TWO_PLUS"}/>{" "}
-              <label for="two-star">2 stars & above</label>
+              <label htmlFor="two-star">2 stars & above</label>
             </span>
             <span>
               <input id="one-star" type="radio" name="rating" value="1+" 
               onChange={() => dispatch({type: "RATINGS", 
               payload: "ONE_PLUS"})}
               checked={sortByRating === "ONE_PLUS"}/>{" "}
-              <label for="one-star">1 stars & above </label>
+              <label htmlFor="one-star">1 stars & above </label>
             </span>
           </div>
         </div>
@@ -95,7 +95,7 @@ export default function Sidebar() {
                 }
                 checked={sortByPrice === "HIGH_TO_LOW"}
               />{" "}
-              <label for="high-to-low">Price - High to Low</label>{" "}
+              <label htmlFor="high-to-low">Price - High to Low</label>{" "}
             </span>
             <span>
               <input
@@ -108,7 +108,7 @@ export default function Sidebar() {
                 }
                 checked={sortByPrice === "LOW_TO_HIGH"}
               />{" "}
-              <label for="low-to-high">Price - Low to High</label>
+              <label htmlFor="low-to-high">Price - Low to High</label>
             </span>
           </div>
         </div>

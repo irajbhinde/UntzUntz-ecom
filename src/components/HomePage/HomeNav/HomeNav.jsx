@@ -29,13 +29,13 @@ export default function HomeNav() {
             </Link>
           </h2>
         </div>
-        <div className="search-bar flex_r">
+        {/* <div className="search-bar flex_r">
           <i className="search-icon fa-solid fa-magnifying-glass"></i>
           <input
             type="search"
             placeholder="Search for products, brands & more"
           />
-        </div>
+        </div> */}
         <div className="home_nav right-navbar">
           <Link 
           onClick={()=>dispatch({type:"CLEAR_FILTERS"})}
@@ -55,13 +55,13 @@ export default function HomeNav() {
 
           <Link to="/cart">
             <i className="fa-solid fa-cart-shopping"></i>
-            <span class="home_c cart-badge">
+            <span className="home_c cart-badge">
               {authStatus ? cartProducts.length : 0}
             </span>
           </Link>
           <Link to="/wishlist">
             <i className="fa-solid fa-heart"></i>
-            <span class="home_w wishlist-badge">
+            <span className="home_w wishlist-badge">
               {authStatus ? wishlistProducts.length : 0}
             </span>
           </Link>

@@ -7,13 +7,13 @@ export default function SignUpCard() {
   const navigate = useNavigate();
   const { auth, setAuth } = useAuth();
   const [confirmPassword, setConfirmPassword] = useState("");
-
   const [passType, setPassType] = useState("password");
   const [userCred, setUserCred] = useState({
     firstName: "",
     lastName: "",
     email: "",
     password: "",
+    confirmPassword: "",
   });
 
   const signUpHandler = async (userCred) => {
@@ -34,7 +34,7 @@ export default function SignUpCard() {
     } catch (error) {
       console.log(error);
     }
-}
+  };
   return (
     <div className="login-page">
       <form
@@ -90,7 +90,7 @@ export default function SignUpCard() {
                       passType === "password" ? "text" : "password"
                     )
                   }
-                  class="pass-icon fa-solid fa-eye"
+                  className="pass-icon fa-solid fa-eye"
                 ></i>
               ) : (
                 <i
@@ -99,30 +99,53 @@ export default function SignUpCard() {
                       passType === "password" ? "text" : "password"
                     )
                   }
-                  class="pass-icon fa-solid fa-eye-slash"
+                  className="pass-icon fa-solid fa-eye-slash"
                 ></i>
               )}
               <p className="input-title"> Confirm Password*</p>
 
               <input
-                value={confirmPassword}
-                onChange={(e) => setConfirmPassword(e.target.value)}
+                onChange={(e) =>
+                  setUserCred({
+                    ...userCred,
+                    confirmPassword: e.target.value,
+                  })
+                }
+                value={userCred.confirmPassword}
                 type={passType}
                 className="input-field margin-bottom"
               />
-              {confirmPassword !== userCred.password &&
-                confirmPassword !== "" &&
-                userCred.password !== "" && <div className="validation-msg">Password Mismatch</div>}
+              {userCred.confirmPassword !== userCred.password &&
+                userCred.confirmPassword !== "" &&
+                userCred.password !== "" && (
+                  <div className="validation-msg">Password Mismatch</div>
+                )}
             </div>
           </div>
-          <button 
-          disabled={
-            confirmPassword !== userCred.password &&
-            confirmPassword !== "" &&
-            userCred.password !== "" 
-          }
-          className="btn primary-btn">
+          <button
+            disabled={
+              userCred.confirmPassword !== userCred.password ||
+              userCred.confirmPassword === "" ||
+              userCred.password === ""
+            }
+            className="btn primary-btn"
+          >
             <p>Create Account</p>
+          </button>
+          <button
+            onClick={(e) => {
+              e.preventDefault();
+              setUserCred({
+                firstName: "Raj",
+                lastName: "Bhinde",
+                email: "rajbhinde1@gmail.com",
+                password: "Xyz@2002",
+                confirmPassword: "Xyz@2002",
+              });
+            }}
+            className="btn-autofill btn primary-btn"
+          >
+            Auto Fill
           </button>
           <Link className="greater-than-anchor" to="/login">
             Already have an account ?

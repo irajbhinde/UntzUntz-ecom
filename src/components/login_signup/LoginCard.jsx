@@ -64,9 +64,9 @@ export default function LoginCard(){
                         type={passType} className="input-field margin-bottom" />
                         {passType === "text" ? <i 
                         onClick={() => setPassType((passType) => (passType === "password" ? "text" : "password"))}
-                        class="loginpass-icon fa-solid fa-eye"></i> : <i 
+                        className="loginpass-icon fa-solid fa-eye"></i> : <i 
                         onClick={() => setPassType((passType) => (passType === "password" ? "text" : "password"))}
-                        class="loginpass-icon fa-solid fa-eye-slash"></i>}                       
+                        className="loginpass-icon fa-solid fa-eye-slash"></i>}                       
                     </div>
                 <div className="login-elements">
                     <div className="element-remember-me">

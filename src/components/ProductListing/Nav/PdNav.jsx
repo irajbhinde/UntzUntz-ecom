@@ -28,13 +28,13 @@ export default function PdNav() {
             </Link>
           </h2>
         </div>
-        <div className="search-bar flex_r">
+        {/* <div className="search-bar flex_r">
           <i className="search-icon fa-solid fa-magnifying-glass"></i>
           <input
             type="search"
             placeholder="Search for products, brands & more"
           />
-        </div>
+        </div> */}
         <div className="right-navbar">
           <Link to="/home">
             <i className="fa-solid fa-arrow-left-long"></i>Back to Home
@@ -49,11 +49,11 @@ export default function PdNav() {
           )}
           <Link to="/cart">
             <i className="fa-solid fa-cart-shopping"></i>
-            <span class="cart-badge">{authStatus ? cartProducts.length : 0 }</span>
+            <span className="cart-badge">{authStatus ? cartProducts.length : 0 }</span>
           </Link>
           <Link to="/wishlist">
             <i className="fa-solid fa-heart"></i>
-            <span class="wishlist-badge">{authStatus ? wishlistProducts.length : 0 }</span>
+            <span className="wishlist-badge">{authStatus ? wishlistProducts.length : 0 }</span>
           </Link>
         </div>
       </div>

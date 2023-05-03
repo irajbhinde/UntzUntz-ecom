@@ -1,0 +1,163 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap");
+
+.checkoutPage-container {
+  align-items: center;
+  gap: 5rem;
+  margin-bottom: 5rem;
+}
+
+.addr-bill-container {
+  width: 100%;
+  gap: 5rem;
+  justify-content: center;
+}
+
+.address-container {
+  width: 43rem;
+}
+
+.addr-container-header {
+  background-color: var(--primary-color);
+  border-radius: 2px 2px 0 0;
+  padding-left: 2rem;
+  height: 2.5rem;
+  align-items: center;
+  display: flex;
+}
+
+.addr-details {
+  padding: 1rem;
+  gap: 1rem;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--primary-color);
+  border-left: 1px solid var(--primary-color);
+  border-right: 1px solid var(--primary-color);
+}
+
+input[type="radio"] {
+  width: 1rem;
+}
+
+.name_number {
+  gap: 1rem;
+}
+
+.flat_details {
+  padding-left: 2rem;
+}
+
+.flat_details {
+  gap: 0.3rem;
+}
+
+.add-new-address {
+  padding: 1rem;
+  border-left: 1px solid var(--primary-color);
+  border-right: 1px solid var(--primary-color);
+  border-bottom: 1px solid var(--primary-color);
+}
+
+.span-addNew-addr {
+  gap: 1rem;
+}
+
+.addr-form-container input, .edit-form-container input{
+  height: 3.125rem;
+  width: 17.5rem;
+}
+
+.addr-input-container {
+  gap: 2rem;
+}
+
+.addr-form-container {
+  margin-top: 1rem;
+  gap: 1rem;
+}
+
+#addressLineOne,
+#addressLineTwo {
+  width: 37rem;
+}
+
+.btn-saveAddr, .btn-autofill {
+  margin-top: 1rem;
+  background-color: var(--primary-color);
+  cursor: pointer;
+  border: none;
+  width: 17.5rem; 
+  height: 3.125rem;
+}
+
+.btn-autofill{
+  background-color: var(--bg-gray);
+}
+.selectedAddress-card {
+  width: 23rem;
+  grid-gap: 0.5rem;
+  gap: 0.5rem;
+  font-size: 13px;
+  border: 1px solid var(--primary-color);
+  border-radius: 5px;
+  padding: 1rem;
+  height: max-content;
+}
+
+.bill-and-address-container {
+  gap: 2rem;
+}
+
+.selected-name_number {
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+input:disabled,
+button:disabled {
+  cursor: not-allowed;
+}
+
+.final-checkout-btn {
+  background-color: var(--primary-color);
+  padding: 0.8rem;
+  cursor: pointer;
+  box-shadow: rgb(0 0 0 / 24%) 0px 4px 9px;
+  border-radius: 5px;
+  font-weight: 600;
+  min-width: 100px;
+  border: none;
+}
+
+.addr-error {
+  color: red;
+  justify-content: center;
+}
+
+.final-bill-card {
+  width: 23rem;
+  gap: 0.5rem;
+  font-size: 13px;
+  border: 1px solid var(--primary-color);
+  border-radius: 5px;
+  height: max-content;
+  padding: 1rem;
+}
+
+.btn-edit {
+  width: 5rem;
+  height: 2rem;
+  background-color: var(--primary-color);
+  border: none;
+  cursor: pointer;
+}
+
+.container-spacing{
+  gap: 1rem;
+}
+
+.edit-form-container{
+  padding: 1rem;
+  border: 1px solid var(--primary-color);
+  grid-gap: 1rem;
+  gap: 1rem;
+}

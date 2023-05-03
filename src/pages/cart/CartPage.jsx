@@ -22,7 +22,7 @@ export default function CartPage() {
           </div>
         </>
       ) : (
-        <div class="doc-checkout flex_r">
+        <div className="doc-checkout flex_r">
           <>
             <div className="checkout-card flex_c">
               {cartProducts.map((product) => {
